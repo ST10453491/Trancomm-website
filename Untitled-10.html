@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trancomm - Core Pillars</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #050505;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: #ffffff;
+        }
+
+        .pillars-section {
+            position: relative;
+            width: 100%;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 100px 20px;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        /* Abstract glowing orbs behind the cards */
+        .glow-orb {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(26, 140, 158, 0.4) 0%, rgba(5, 5, 5, 0) 70%);
+            border-radius: 50%;
+            filter: blur(40px);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .orb-1 { top: 10%; left: 15%; }
+        .orb-2 { bottom: 10%; right: 15%; background: radial-gradient(circle, rgba(155, 89, 182, 0.3) 0%, rgba(5, 5, 5, 0) 70%); }
+
+        /* Grid Layout */
+        .pillars-grid {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        /* Glassmorphism Card Design */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 50px 40px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Hover states for interactive feel */
+        .glass-card:hover {
+            transform: translateY(-12px);
+            border-color: rgba(26, 140, 158, 0.5);
+            box-shadow: 0 20px 40px rgba(26, 140, 158, 0.15);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Top highlight line inside the card */
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, rgba(26, 140, 158, 0.8), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .glass-card:hover::before {
+            opacity: 1;
+        }
+
+        /* Typography */
+        .pillar-number {
+            font-family: Georgia, serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #d387c8, #9b59b6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 25px;
+            display: inline-block;
+        }
+
+        .pillar-title {
+            font-family: Georgia, serif;
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin: 0 0 20px 0;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+        }
+
+        .pillar-desc {
+            color: #b0c4de;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            font-weight: 300;
+            margin: 0;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1024px) {
+            .pillars-grid {
+                gap: 25px;
+            }
+            .glass-card {
+                padding: 40px 25px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .pillars-grid {
+                grid-template-columns: 1fr; /* Stacks to single column */
+                gap: 30px;
+            }
+            .glow-orb {
+                width: 200px;
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="pillars-section">
+        
+        <!-- Ambient Background Glows -->
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+
+        <!-- Cards Container -->
+        <div class="pillars-grid">
+            
+            <!-- Card 01: Telecommunications -->
+            <div class="glass-card">
+                <div class="pillar-number">01</div>
+                <h3 class="pillar-title">Telecommunications</h3>
+                <p class="pillar-desc">
+                    Reliable Microwave, Radio Frequency (RF), and Wi-Fi networks designed for seamless connectivity and site coverage.
+                </p>
+            </div>
+
+            <!-- Card 02: Information Technology -->
+            <div class="glass-card">
+                <div class="pillar-number">02</div>
+                <h3 class="pillar-title">IT Infrastructure</h3>
+                <p class="pillar-desc">
+                    Robust network cabling, fibre installations, and comprehensive cyber security and CCTV surveillance systems.
+                </p>
+            </div>
+
+            <!-- Card 03: Consulting & Bespoke Solutions -->
+            <div class="glass-card">
+                <div class="pillar-number">03</div>
+                <h3 class="pillar-title">Strategic Consulting</h3>
+                <p class="pillar-desc">
+                    Expert guidance in enterprise architecture, ICT governance, and bespoke command and control solutions.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+</body>
+</html>

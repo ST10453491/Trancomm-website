@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills & Certification | Trancomm</title>
+    <style>
+        :root {
+            --bg-color: #050505;
+            --card-bg: #111111;
+            --card-hover: #1a1a1a;
+            --cyan-accent: #1a8c9e;
+            --gold-accent: #dca543;
+            --text-main: #f4f4f2;
+            --text-muted: #a0a0a0;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            text-align: center;
+        }
+
+        /* Decorative background elements */
+        .bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle at 10% 10%, rgba(26, 140, 158, 0.05) 0%, transparent 40%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 80px 40px;
+            position: relative;
+        }
+
+        /* Accent Line framing the section */
+        .accent-frame {
+            position: relative;
+            padding-left: 40px;
+        }
+        
+        .accent-frame::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 15px;
+            bottom: -20px;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--cyan-accent) 0%, var(--gold-accent) 100%);
+            border-radius: 2px;
+        }
+
+        .accent-frame::after {
+            content: '';
+            position: absolute;
+            left: -4px;
+            top: 15px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--bg-color);
+            border: 2px solid var(--cyan-accent);
+        }
+
+        /* Header Styles */
+        .header-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .page-title {
+            font-family: Georgia, serif;
+            font-size: 3.5rem;
+            font-weight: 400;
+            margin: 0;
+            color: var(--text-main);
+        }
+
+        .title-icon {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(220, 165, 67, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--gold-accent);
+        }
+
+        .title-icon svg {
+            width: 35px;
+            height: 35px;
+            fill: var(--gold-accent);
+        }
+
+        /* Layout Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 60px;
+            align-items: stretch;
+            justify-items: center;
+        }
+
+        .text-columns {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid #222;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            text-align: center;
+        }
+
+        /* List Styling */
+        .list-section h3 {
+            color: var(--cyan-accent);
+            font-size: 1.6rem;
+            margin-top: 0;
+            margin-bottom: 25px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+        }
+
+        .intro-text {
+            color: var(--gold-accent);
+            font-size: 1.05rem;
+            font-weight: 500;
+            margin-bottom: 25px;
+            line-height: 1.5;
+            grid-column: 1 / -1;
+        }
+
+        .custom-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .custom-list li {
+            position: relative;
+            padding-left: 0;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            color: #d0d0d0;
+            transition: color 0.2s ease;
+        }
+
+        .custom-list li:hover {
+            color: #ffffff;
+        }
+
+        .custom-list li::before {
+            content: none;
+        }
+
+        .custom-list.cert-list li::before {
+            content: none;
+        }
+
+        /* Image Section */
+        .image-container {
+            position: relative;
+            width: min(100%, 900px);
+            min-height: 520px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            display: flex;
+        }
+
+        /* The decorative border that wraps the image in the design */
+        .image-container::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            bottom: 20px;
+            left: 20px;
+            border: 1px solid rgba(220, 165, 67, 0.5);
+            border-radius: 12px;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+
+        .image-container:hover img {
+            transform: scale(1.05);
+        }
+        
+        .image-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, var(--bg-color) 0%, rgba(5,5,5,0) 30%);
+            z-index: 1;
+        }
+
+        /* Citation styling */
+        .cite {
+            font-size: 0.75rem;
+            color: #444;
+            font-style: italic;
+            display: inline-block;
+            margin-left: 5px;
+            user-select: none;
+        }
+
+        @media (max-width: 1024px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            .image-container {
+                min-height: 400px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .text-columns {
+                grid-template-columns: 1fr;
+            }
+            .page-title {
+                font-size: 2.5rem;
+            }
+            .container {
+                padding: 40px 20px;
+            }
+            .accent-frame {
+                padding-left: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-pattern"></div>
+
+    <div class="container">
+        <div class="accent-frame">
+            
+            <div class="header-wrapper">
+                <h1 class="page-title">Skills & Certification <span class="cite"></span></h1>
+                <div class="title-icon">
+                    <!-- Graduation Cap SVG Icon -->
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 3L1 9L5 11.18V17.18L12 21L19 17.18V11.18L21 10.09V17H23V9L12 3ZM18.82 9L12 12.72L5.18 9L12 5.28L18.82 9ZM17 15.99L12 18.72L7 15.99V12.27L12 15L17 12.27V15.99Z"/>
+                    </svg>
+                </div>
+            </div>
+            
+            <div class="content-grid">
+                
+                <!-- Left Column: Text Data -->
+                <div class="text-columns">
+                    
+                    <p class="intro-text">
+                        • Have more than 20 years of experience providing ICT/IT services within private & public sectors. <span class="cite"></span>
+                    </p>
+
+                    <!-- Resources Section -->
+                    <div class="list-section">
+                        <h3>Resources <span class="cite"></span></h3>
+                        <ul class="custom-list">
+                            <li>Microwave Engineers <span class="cite"></span></li>
+                            <li>Cabling Engineers <span class="cite"></span></li>
+                            <li>Network Engineers <span class="cite"></span></li>
+                            <li>Solution Architect <span class="cite"></span></li>
+                            <li>Governance Resources <span class="cite"></span></li>
+                            <li>Strategy Resources <span class="cite"></span></li>
+                            <li>Data Analytics <span class="cite"></span></li>
+                            <li>Trainers <span class="cite"></span></li>
+                            <li>System Developers <span class="cite"></span></li>
+                            <li>Programme Portfolio and Project managers <span class="cite"></span></li>
+                            <li>Business Analysts <span class="cite"></span></li>
+                            <li>IT Governance and IT Service Experts <span class="cite"></span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Certification Section -->
+                    <div class="list-section">
+                        <h3>Certification <span class="cite"></span></h3>
+                        <ul class="custom-list cert-list">
+                            <li>TOGAF, GWEA, DODAF, COBIT, ITIL <span class="cite"></span></li>
+                            <li>PMBOK, Prince2 <span class="cite"></span></li>
+                            <li>Strategy Certification <span class="cite"></span></li>
+                            <li>SHE Certificates <span class="cite"></span></li>
+                            <li>Risk Assessment <span class="cite"></span></li>
+                            <li>Fire Fighting <span class="cite"></span></li>
+                            <li>Incident inspector certificate <span class="cite"></span></li>
+                            <li>Construction and Legal certificate <span class="cite"></span></li>
+                            <li>Rope Rigging and Rescue <span class="cite"></span></li>
+                            <li>Level 1 & 3 Rope access certificate <span class="cite"></span></li>
+                            <li>Fall Arrest and Rescue <span class="cite"></span></li>
+                            <li>RF awareness <span class="cite"></span></li>
+                            <li>Fall Arrest Planner <span class="cite"></span></li>
+                            <li>Climb Gear inspector <span class="cite"></span></li>
+                            <li>Cabling certification <span class="cite"></span></li>
+                            <li>Electrical Certification <span class="cite"></span></li>
+                            <li>Approved Health & Safety File <span class="cite"></span></li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <!-- Right Column: Image Presentation -->
+                <div class="image-container">
+                    <div class="image-overlay"></div>
+                    <!-- Note: Replace the src URL below with your actual local image path, e.g., src="assets/skills-team.jpg" -->
+                    <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Two developers looking at code on a laptop screen" />
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

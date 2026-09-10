@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telecommunications Solutions | Trancomm</title>
+    <style>
+        :root {
+            --bg-color: #050505;
+            --card-bg: rgba(15, 15, 15, 0.75);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --cyan-accent: #1a8c9e;
+            --gold-accent: #dca543;
+            --text-main: #f4f4f2;
+            --text-muted: #a0a0a0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- Global Network Mesh Background --- */
+        .page-wrapper {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            background: radial-gradient(circle at 50% 20%, #111a1f 0%, var(--bg-color) 70%);
+            padding-bottom: 100px;
+        }
+
+        .page-wrapper::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: 
+                radial-gradient(circle, rgba(26, 140, 158, 0.15) 1px, transparent 1px),
+                linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 50px 50px, 100px 100px, 100px 100px;
+            opacity: 0.4;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* --- Typography & Headings --- */
+        .section-eyebrow {
+            color: var(--cyan-accent);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .main-title {
+            font-family: Georgia, serif;
+            font-size: 3.5rem;
+            font-weight: 400;
+            color: #ffffff;
+            margin-bottom: 16px;
+            line-height: 1.15;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 800px;
+            font-weight: 300;
+            margin-bottom: 40px;
+        }
+
+        .section-heading {
+            font-family: Georgia, serif;
+            font-size: 2.2rem;
+            font-weight: 400;
+            color: #ffffff;
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background-color: var(--cyan-accent);
+        }
+
+        /* --- Hero Section --- */
+        .hero-section {
+            padding: 100px 0 60px 0;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .intro-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 40px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            margin-top: 20px;
+        }
+
+        .intro-card p {
+            font-size: 1.1rem;
+            color: #d8d8d8;
+            margin-bottom: 16px;
+        }
+
+        /* --- Grid Layouts --- */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .section-block {
+            padding: 80px 0;
+        }
+
+        /* --- Glassmorphism Cards --- */
+        .glass-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 32px;
+            backdrop-filter: blur(8px);
+            transition: all 0.35s ease;
+            height: 100%;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--cyan-accent);
+            background: rgba(26, 140, 158, 0.08);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(26, 140, 158, 0.2);
+        }
+
+        .card-title {
+            font-family: Georgia, serif;
+            font-size: 1.35rem;
+            color: #ffffff;
+            margin-bottom: 12px;
+        }
+
+        .card-text {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* --- Bullet Lists in Services --- */
+        .feature-list {
+            list-style: none;
+            margin-top: 16px;
+        }
+
+        .feature-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
+            font-size: 0.92rem;
+            color: #d0d0d0;
+        }
+
+        .feature-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 6px;
+            height: 6px;
+            background-color: var(--cyan-accent);
+            border-radius: 50%;
+        }
+
+        /* --- Partners Section --- */
+        .partner-card {
+            border-left: 3px solid var(--gold-accent);
+        }
+
+        .partner-name {
+            color: var(--gold-accent);
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        /* --- Client Pills Grid --- */
+        .client-pill-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .client-pill {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--card-border);
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-size: 1rem;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        .client-pill:hover {
+            border-color: var(--cyan-accent);
+            background: rgba(26, 140, 158, 0.15);
+            box-shadow: 0 0 12px rgba(26, 140, 158, 0.3);
+        }
+
+        /* --- Advantage & CTA Block --- */
+        .cta-box {
+            background: linear-gradient(135deg, rgba(26, 140, 158, 0.15) 0%, rgba(15, 15, 15, 0.9) 100%);
+            border: 1px solid var(--cyan-accent);
+            border-radius: 20px;
+            padding: 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .btn-primary {
+            background-color: var(--cyan-accent);
+            color: #ffffff;
+            border: 1px solid var(--cyan-accent);
+        }
+
+        .btn-primary:hover {
+            background-color: #22a3b8;
+            box-shadow: 0 0 20px rgba(26, 140, 158, 0.5);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            border-color: #ffffff;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1024px) {
+            .grid-4, .grid-3 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .main-title {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .grid-4, .grid-3, .grid-2 {
+                grid-template-columns: 1fr;
+            }
+            .main-title {
+                font-size: 2.2rem;
+            }
+            .subtitle {
+                font-size: 1.05rem;
+            }
+            .cta-box {
+                padding: 30px 20px;
+            }
+            .btn-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-wrapper">
+        <div class="container">
+
+            <!-- Hero Section -->
+            <header class="hero-section">
+                <span class="section-eyebrow">Enterprise Telecommunications</span>
+                <h1 class="main-title">Telecommunications Solutions</h1>
+                <p class="subtitle">Architecting the Future of High-Speed, Resilient, and Intelligent Connectivity.</p>
+                
+                <div class="intro-card">
+                    <p>In an era defined by hyper-connectivity, 5G expansion, and the Internet of Things (IoT), telecommunications providers require more than just hardware—they need intelligent, scalable, and secure network architectures.</p>
+                    <p>Trancomm provides end-to-end telecommunications infrastructure, integration, and command-and-control solutions designed to meet the rigorous demands of modern Mobile Network Operators (MNOs), Internet Service Providers (ISPs), and government broadband initiatives. We bridge the gap between legacy systems and next-generation technologies, ensuring maximum uptime, optimized bandwidth, and seamless data transmission across vast geographical landscapes.</p>
+                </div>
+            </header>
+
+            <!-- Challenges We Solve -->
+            <section class="section-block">
+                <span class="section-eyebrow">Industry Drivers</span>
+                <h2 class="section-heading">The Challenges We Solve</h2>
+                
+                <div class="grid-4">
+                    <div class="glass-card">
+                        <h3 class="card-title">Network Modernization</h3>
+                        <p class="card-text">Seamlessly migrating from legacy 3G/4G architectures to high-density 5G and fiber-optic networks without service disruption.</p>
+                    </div>
+
+                    <div class="glass-card">
+                        <h3 class="card-title">Infrastructure Monitoring</h3>
+                        <p class="card-text">Managing sprawling, complex network ecosystems across thousands of dispersed nodes and remote cell sites.</p>
+                    </div>
+
+                    <div class="glass-card">
+                        <h3 class="card-title">Security & Compliance</h3>
+                        <p class="card-text">Defending critical infrastructure against sophisticated cyber threats while adhering to strict regulatory standards.</p>
+                    </div>
+
+                    <div class="glass-card">
+                        <h3 class="card-title">Scalability</h3>
+                        <p class="card-text">Building elastic network backbones capable of handling massive surges in consumer data and enterprise cloud traffic.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Core Services -->
+            <section class="section-block">
+                <span class="section-eyebrow">Capabilities</span>
+                <h2 class="section-heading">Core Telecommunications Services</h2>
+
+                <div class="grid-3" style="margin-bottom: 30px;">
+                    <div class="glass-card">
+                        <h3 class="card-title">Carrier-Grade Network Infrastructure</h3>
+                        <p class="card-text">We design, supply, and implement robust core and edge networking solutions tailored for telecommunications providers. Partnering with global leaders like Cisco and Huawei, we deploy high-capacity routers, switches, and optical transport networks (OTN).</p>
+                        <ul class="feature-list">
+                            <li>IP/MPLS Core Network design and deployment</li>
+                            <li>Data center networking and virtualization</li>
+                            <li>SDN & Network Functions Virtualization (NFV)</li>
+                        </ul>
+                    </div>
+
+                    <div class="glass-card">
+                        <h3 class="card-title">Broadband & Fiber Optic (FTTx)</h3>
+                        <p class="card-text">Trancomm is a trusted partner in rolling out large-scale broadband initiatives. We provide end-to-end optical network solutions that deliver gigabit speeds to homes, businesses, and government facilities.</p>
+                        <ul class="feature-list">
+                            <li>FTTH, FTTB, and FTTT architectures</li>
+                            <li>Passive Optical Network (PON) & GPON deployments</li>
+                            <li>Route surveying, civil works, and fiber splicing</li>
+                        </ul>
+                    </div>
+
+                    <div class="glass-card">
+                        <h3 class="card-title">Command & Network Operations (NOC/SOC)</h3>
+                        <p class="card-text">Uptime is the currency of the telecom industry. Leveraging advanced PSIM platforms like Octopus, we build state-of-the-art Network Operations Centers and Security Operations Centers.</p>
+                        <ul class="feature-list">
+                            <li>Real-time network topology visualization & fault management</li>
+                            <li>Predictive maintenance alerts via AI analytics</li>
+                            <li>Unified monitoring for IT and remote tower facilities</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <div class="glass-card">
+                        <h3 class="card-title">Mobile Network Backhaul & RAN Optimization</h3>
+                        <p class="card-text">To support the explosive growth of mobile data, cell towers require ultra-reliable backhaul connections. Trancomm delivers wireless and wired backhaul solutions that ensure seamless data flow from the Radio Access Network (RAN) to the core network.</p>
+                        <ul class="feature-list">
+                            <li>High-capacity microwave link design and installation</li>
+                            <li>Cell site router configuration and deployment</li>
+                            <li>Spectrum optimization and interference mitigation strategies</li>
+                        </ul>
+                    </div>
+
+                    <div class="glass-card">
+                        <h3 class="card-title">Enterprise Unified Communications</h3>
+                        <p class="card-text">Beyond infrastructure, we empower telcos to offer premium Unified Communications as a Service (UCaaS) to their enterprise clients, driving additional recurring revenue streams.</p>
+                        <ul class="feature-list">
+                            <li>Secure, scalable VoIP and IP telephony systems</li>
+                            <li>High-definition video conferencing & collaboration suites</li>
+                            <li>Secure multi-tenant cloud communication environments</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Strategic Partners -->
+            <section class="section-block">
+                <span class="section-eyebrow">Ecosystem</span>
+                <h2 class="section-heading">Strategic Technology Partners</h2>
+
+                <div class="grid-3">
+                    <div class="glass-card partner-card">
+                        <div class="partner-name">HUAWEI</div>
+                        <h3 class="card-title">Hardware & 5G Systems</h3>
+                        <p class="card-text">Leveraging cutting-edge 5G hardware, optical transmission nodes, and enterprise networking equipment for high-throughput backbones.</p>
+                    </div>
+
+                    <div class="glass-card partner-card">
+                        <div class="partner-name">CISCO</div>
+                        <h3 class="card-title">Routing & Cybersecurity</h3>
+                        <p class="card-text">Deploying industry-standard routing, switching, and advanced zero-trust cybersecurity protocols for carrier networks.</p>
+                    </div>
+
+                    <div class="glass-card partner-card">
+                        <div class="partner-name">OCTOPUS</div>
+                        <h3 class="card-title">Command & Control</h3>
+                        <p class="card-text">Utilizing premier command-and-control software to unify network monitoring, physical security, and crisis management into a single pane of glass.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Trusted Clients -->
+            <section class="section-block">
+                <span class="section-eyebrow">Proven Track Record</span>
+                <h2 class="section-heading">Trusted by Industry Giants</h2>
+                <p class="subtitle">When national connectivity is on the line, Africa's leading network operators choose Trancomm.</p>
+
+                <div class="client-pill-grid">
+                    <div class="client-pill">Vodacom</div>
+                    <div class="client-pill">MTN</div>
+                    <div class="client-pill">Cell C</div>
+                    <div class="client-pill">Telkom (8ta)</div>
+                    <div class="client-pill">Sentech</div>
+                    <div class="client-pill">Gauteng Broadband Network (GBN)</div>
+                </div>
+            </section>
+
+            <!-- Advantage & CTA -->
+            <section class="section-block">
+                <div class="cta-box">
+                    <span class="section-eyebrow">Why Trancomm</span>
+                    <h2 class="main-title" style="font-size: 2.5rem;">Ready to Scale Your Network?</h2>
+                    <p class="card-text" style="max-width: 800px; margin: 0 auto; font-size: 1.05rem;">
+                        We handle the entire project lifecycle—from initial network design and procurement to deployment, testing, and ongoing maintenance. Build a future-proof network today.
+                    </p>
+
+                    <div class="btn-group">
+                        <a href="#contact" class="btn btn-primary">Contact Engineering Team</a>
+                        <a href="#consultation" class="btn btn-secondary">Request Consultation</a>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+</body>
+</html>

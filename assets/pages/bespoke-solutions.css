@@ -1,0 +1,22 @@
+@import url("../site.css");
+
+.bespoke-disciplines { text-align: center; }
+.bespoke-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; text-align: left; }
+.bespoke-card { overflow: hidden; background: rgba(15,15,15,.78); border: 1px solid rgba(255,255,255,.12); border-top: 3px solid var(--cyan); transition: transform .3s ease, border-color .3s ease; }
+.bespoke-card:hover { transform: translateY(-5px); border-color: var(--cyan); }
+.bespoke-card > img { display: block; width: 100%; height: 220px; object-fit: cover; }
+.bespoke-card-content { padding: 28px; }
+.bespoke-card-content > span { color: var(--cyan); font: 700 2rem "Cormorant Garamond", serif; }
+.bespoke-card h3 { margin: 10px 0 12px; font-size: 1.5rem; }
+.bespoke-card p, .bespoke-card li { color: var(--gray); }
+.bespoke-card ul { padding-left: 20px; margin-bottom: 0; }
+.bespoke-process { text-align: center; }
+.bespoke-process-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; text-align: left; }
+.bespoke-process-grid article { overflow: hidden; background: rgba(15,15,15,.75); border-top: 2px solid var(--cyan); }
+.bespoke-process-grid article > img { display: block; width: 100%; height: 190px; object-fit: cover; }
+.bespoke-process-grid article > div { padding: 24px; }
+.bespoke-process-grid strong { color: var(--cyan); font-size: .8rem; letter-spacing: .12em; }
+.bespoke-process-grid h3 { margin: 28px 0 8px; font-size: 1.4rem; }
+.bespoke-process-grid p { margin: 0; color: var(--gray); }
+@media (max-width: 760px) { .bespoke-grid { grid-template-columns: 1fr; } .bespoke-card > img { height: 190px; } }
+@media (max-width: 760px) { .bespoke-process-grid { grid-template-columns: 1fr; } .bespoke-process-grid article > img { height: 210px; } }

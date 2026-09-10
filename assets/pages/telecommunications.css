@@ -1,0 +1,49 @@
+@import url("../site.css");
+
+.telecom-wrapper { position: relative; overflow: hidden; background: radial-gradient(circle at 50% 18%, #111a1f 0%, var(--black) 62%); }
+.telecom-wrapper::before { content: ""; position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(83, 174, 199, .13) 1px, transparent 1px), linear-gradient(to right, rgba(255,255,255,.018) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,.018) 1px, transparent 1px); background-size: 50px 50px, 100px 100px, 100px 100px; opacity: .38; pointer-events: none; }
+.telecom-wrapper .container { position: relative; z-index: 1; width: min(1300px, calc(100% - 48px)); }
+.telecom-hero { min-height: 680px; padding: 120px 0 76px; display: flex; align-items: center; text-align: center; }
+.telecom-hero .container { width: min(1300px, calc(100% - 48px)); }
+.telecom-eyebrow { display: block; margin-bottom: 12px; color: var(--cyan); font-size: .85rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; }
+.telecom-hero h1 { max-width: 850px; margin: 0 auto 16px; font-size: clamp(3rem, 7vw, 5.5rem); }
+.telecom-subtitle { max-width: 800px; margin: 0 auto 40px; color: var(--gray); font-size: 1.2rem; font-weight: 400; }
+.telecom-intro { max-width: 900px; margin: 0 auto; padding: 34px; background: rgba(15,15,15,.76); border: 1px solid rgba(255,255,255,.1); border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,.35); backdrop-filter: blur(8px); }
+.telecom-intro p { margin: 0; color: #d8d8d8; font-size: 1.05rem; }
+.telecom-intro p + p { margin-top: 16px; }
+.telecom-section { position: relative; padding: 82px 0; text-align: center; }
+.telecom-heading { display: inline-block; position: relative; margin-bottom: 34px; font-size: clamp(2.3rem, 4vw, 3.3rem); }
+.telecom-heading::after { content: ""; position: absolute; bottom: -8px; left: 50%; width: 60px; height: 2px; background: var(--cyan); transform: translateX(-50%); }
+.telecom-grid { display: grid; gap: 24px; }
+.telecom-grid-2 { grid-template-columns: repeat(2, 1fr); }
+.telecom-grid-3 { grid-template-columns: repeat(3, 1fr); }
+.telecom-grid-4 { grid-template-columns: repeat(4, 1fr); }
+.telecom-grid-lower { margin-top: 24px; }
+.telecom-card { height: 100%; padding: 28px; background: rgba(15,15,15,.72); border: 1px solid rgba(255,255,255,.1); border-radius: 12px; box-shadow: 0 14px 28px rgba(0,0,0,.22); backdrop-filter: blur(7px); text-align: center; transition: transform .3s ease, border-color .3s ease, background .3s ease; }
+.telecom-card:hover { transform: translateY(-5px); border-color: var(--cyan); background: rgba(83,174,199,.08); }
+.telecom-card h3 { margin-bottom: 12px; color: var(--white); font-size: 1.35rem; }
+.telecom-card p { margin: 0; color: var(--gray); line-height: 1.65; }
+.telecom-card ul { width: fit-content; padding: 0; margin: 18px auto 0; list-style: none; text-align: left; }
+.telecom-card li { position: relative; padding-left: 18px; margin-bottom: 9px; color: #d0d0d0; font-size: .92rem; line-height: 1.5; }
+.telecom-card li::before { content: ""; position: absolute; top: .65em; left: 0; width: 6px; height: 6px; border-radius: 50%; background: var(--cyan); }
+.telecom-partner { border-left: 3px solid var(--magenta); }
+.telecom-partner strong { display: block; margin-bottom: 8px; color: var(--magenta); font-size: 1.05rem; letter-spacing: 1px; }
+.telecom-client-list { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; margin-top: 20px; }
+.telecom-client-list span { padding: 12px 22px; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); border-radius: 999px; color: var(--white); }
+.telecom-cta { padding: 48px; text-align: center; background: linear-gradient(135deg, rgba(83,174,199,.15), rgba(15,15,15,.88)); border: 1px solid var(--cyan); border-radius: 16px; box-shadow: 0 20px 50px rgba(0,0,0,.45); }
+.telecom-cta .telecom-eyebrow, .telecom-cta p { max-width: 800px; margin-right: auto; margin-left: auto; }
+.telecom-cta h2 { font-size: clamp(2.5rem, 5vw, 4rem); }
+.telecom-cta p { color: var(--gray); }
+.telecom-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 16px; margin-top: 26px; }
+.telecom-actions .button { margin-top: 0; }
+@media (max-width: 1024px) {
+	.telecom-grid-4, .telecom-grid-3 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 760px) {
+	.telecom-wrapper .container { width: min(100% - 40px, 980px); }
+	.telecom-hero { min-height: 0; padding: 92px 0 60px; }
+	.telecom-intro { padding: 24px; }
+	.telecom-grid-2, .telecom-grid-3, .telecom-grid-4 { grid-template-columns: 1fr; }
+	.telecom-section { padding: 64px 0; }
+	.telecom-cta { padding: 32px 20px; }
+}

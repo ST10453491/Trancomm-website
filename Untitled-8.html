@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trancomm - What We Do</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #050505;
+        }
+
+        /* --- Video Hero Section --- */
+        .video-hero {
+            position: relative;
+            width: 100%;
+            height: 100vh; /* Takes up the full height of the screen */
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden; /* Prevents scrolling issues if video is slightly larger */
+        }
+
+        /* The actual video element */
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the video covers the area without stretching */
+            z-index: 1; /* Sends video to the very back */
+        }
+
+        /* Dark overlay to make text readable */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 5, 5, 0.65); /* 65% opacity black/dark navy */
+            z-index: 2; /* Sits on top of the video */
+        }
+
+        /* Content container */
+        .hero-content {
+            position: relative;
+            z-index: 3; /* Sits on top of the overlay */
+            text-align: center;
+            max-width: 900px;
+            padding: 0 20px;
+            color: #ffffff;
+        }
+
+        /* Typography */
+        .hero-eyebrow {
+            color: #1a8c9e; /* Trancomm Cyan */
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .hero-title {
+            font-family: Georgia, serif;
+            font-size: 4.5rem;
+            font-weight: 400;
+            line-height: 1.1;
+            margin: 0 0 30px 0;
+        }
+
+        .hero-subtitle {
+            color: #e0e0e0;
+            font-size: 1.25rem;
+            line-height: 1.6;
+            margin: 0 auto 40px auto;
+            max-width: 700px;
+            font-weight: 300;
+        }
+
+        /* Buttons */
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            background-color: #1a8c9e;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 16px 36px;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #136a78;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 16px 36px;
+            font-weight: 600;
+            border-radius: 4px;
+            border: 1px solid #ffffff;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background-color: #ffffff;
+            color: #050505;
+        }
+
+        /* Responsive adjustments for mobile screens */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            .hero-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                box-sizing: border-box;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section Start -->
+    <header class="video-hero">
+        
+        <!-- Background Video -->
+        <!-- Note: autoplay, loop, muted, and playsinline are ALL required for modern browsers to allow the video to auto-play -->
+        <video class="hero-video" autoplay loop muted playsinline>
+            <source src="your-video-file.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <!-- The Dark Overlay -->
+        <div class="hero-overlay"></div>
+
+        <!-- The Content -->
+        <div class="hero-content">
+            <div class="hero-eyebrow">What We Do</div>
+            <h1 class="hero-title">Connecting Possibilities.</h1>
+            <p class="hero-subtitle">
+                Delivering dependable network infrastructure, bespoke command systems, and strategic ICT consulting for complex projects.
+            </p>
+            
+            <div class="hero-buttons">
+                <a href="#services" class="btn-primary">Explore Our Services</a>
+                <a href="#contact" class="btn-secondary">Talk to an Expert</a>
+            </div>
+        </div>
+
+    </header>
+    <!-- Hero Section End -->
+
+</body>
+</html>

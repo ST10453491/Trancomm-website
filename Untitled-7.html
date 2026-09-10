@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trancomm - Footer</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #0b0f19;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: #ffffff;
+        }
+
+        footer {
+            width: 100%;
+            background-color: #0b0f19;
+            color: #b0c4de;
+            padding: 60px 40px;
+            box-sizing: border-box;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .footer-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        /* Brand Column */
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 25px;
+            text-decoration: none;
+        }
+
+        .footer-logo svg {
+            width: 160px;
+            height: auto;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+
+        .social-icons a {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.05);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-icons a:hover {
+            background: #1a8c9e;
+            border-color: #1a8c9e;
+            transform: translateY(-2px);
+        }
+
+        .copyright {
+            font-size: 0.85rem;
+            color: #8892b0;
+            line-height: 1.6;
+        }
+
+        .legal-links {
+            margin-top: 10px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .legal-links a {
+            color: #8892b0;
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.2s ease;
+        }
+
+        .legal-links a:hover {
+            color: #1a8c9e;
+            text-decoration: underline;
+        }
+
+        /* Navigation Columns */
+        .footer-column h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-top: 0;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column a {
+            color: #b0c4de;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s ease;
+        }
+
+        .footer-column a:hover {
+            color: #1a8c9e;
+        }
+
+        .sub-header {
+            margin-top: 30px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .footer-container {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <footer>
+        <div class="footer-container">
+            
+            <!-- Column 1: Brand & Socials -->
+            <div class="footer-brand">
+                <a href="#" class="footer-logo">
+                    <svg viewBox="0 0 700 160" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M 90 25 C 10 25, 20 120, 90 135 C 140 145, 180 130, 210 110" fill="transparent" stroke="#1a8c9e" stroke-width="9" stroke-linecap="round" />
+                        <circle cx="53" cy="98" r="16" fill="#1a8c9e" />
+                        <text x="100" y="100" font-family="Arial, sans-serif" font-weight="900" font-size="76" fill="#ffffff">TRAN</text>
+                        <text x="325" y="100" font-family="Arial, sans-serif" font-weight="900" font-size="76" fill="#8bc53f">COMM</text>
+                        <text x="560" y="128" font-family="Arial, sans-serif" font-weight="600" font-size="24" fill="#a0a3a6" text-anchor="end">communications</text>
+                    </svg>
+                </a>
+                
+                <div class="social-icons">
+                    <a href="#" aria-label="LinkedIn">in</a>
+                    <a href="#" aria-label="Twitter">𝕏</a>
+                    <a href="#" aria-label="YouTube">▶</a>
+                    <a href="#" aria-label="Globe">🌐</a>
+                </div>
+
+                <div class="copyright">
+                    &copy; 2026 Trancomm Communications. All rights reserved.
+                </div>
+                <div class="legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms and Conditions</a>
+                </div>
+            </div>
+
+            <!-- Column 2: Company -->
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Case Studies</a></li>
+                    <li><a href="#">Resources</a></li>
+                    <li><a href="#">Approach</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Insights</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Core Services -->
+            <div class="footer-column">
+                <h4>Core Services</h4>
+                <ul>
+                    <li><a href="#">Telecommunications</a></li>
+                    <li><a href="#">Microwave &amp; RF</a></li>
+                    <li><a href="#">IT Infrastructure</a></li>
+                    <li><a href="#">Enterprise Architecture</a></li>
+                    <li><a href="#">ICT Governance</a></li>
+                    <li><a href="#">Business Continuity</a></li>
+                    <li><a href="#">Security &amp; Forensics</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 4: Industries -->
+            <div class="footer-column">
+                <h4>Industries</h4>
+                <ul>
+                    <li><a href="#">Public Sector &amp; Government</a></li>
+                    <li><a href="#">Telecommunications Operators</a></li>
+                    <li><a href="#">Law Enforcement &amp; Security</a></li>
+                    <li><a href="#">Enterprise &amp; Corporate</a></li>
+                </ul>
+                
+                <h4 class="sub-header">Partners</h4>
+                <ul>
+                    <li><a href="#">Huawei Solutions</a></li>
+                    <li><a href="#">Cisco Networking</a></li>
+                    <li><a href="#">Dell Enterprise</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 5: Advanced & AI -->
+            <div class="footer-column">
+                <h4>Digital &amp; AI</h4>
+                <ul>
+                    <li><a href="#">AI &amp; Data Analytics</a></li>
+                    <li><a href="#">Custom Software &amp; Bespoke</a></li>
+                    <li><a href="#">Cyber Security Training</a></li>
+                    <li><a href="#">ICT Consulting</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>

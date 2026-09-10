@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trancomm - What We Do</title>
+    <style>
+        :root {
+            --bg-color: #050505;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --cyan-accent: #1a8c9e;
+            --purple-accent: #9b59b6;
+            --text-main: #ffffff;
+            --text-muted: #b0c4de;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-main);
+        }
+
+        .what-we-do-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 100px 20px;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        /* --- Section Header --- */
+        .section-header {
+            text-align: center;
+            max-width: 850px;
+            margin: 0 auto 80px auto;
+        }
+
+        .eyebrow {
+            color: var(--cyan-accent);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .main-title {
+            font-family: Georgia, serif;
+            font-size: 3.5rem;
+            font-weight: 400;
+            line-height: 1.2;
+            margin: 0 0 25px 0;
+        }
+
+        .section-desc {
+            color: var(--text-muted);
+            font-size: 1.15rem;
+            line-height: 1.7;
+            font-weight: 300;
+            margin: 0;
+        }
+
+        /* --- Services Grid --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 40px 30px;
+            transition: all 0.4s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(26, 140, 158, 0.4);
+            box-shadow: 0 15px 35px rgba(26, 140, 158, 0.12);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .card-number {
+            font-family: Georgia, serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #d387c8, var(--purple-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .card-title {
+            font-family: Georgia, serif;
+            font-size: 1.6rem;
+            font-weight: 400;
+            margin: 0 0 15px 0;
+        }
+
+        .card-summary {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            font-weight: 300;
+        }
+
+        .capability-list {
+            list-style: none;
+            padding: 0;
+            margin: auto 0 0 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+        }
+
+        .capability-list li {
+            color: #e0e0e0;
+            font-size: 0.9rem;
+            padding: 6px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .capability-list li::before {
+            content: "•";
+            color: var(--cyan-accent);
+            font-weight: bold;
+            display: inline-block;
+            width: 1rem;
+        }
+
+        /* --- Featured Platforms Section --- */
+        .featured-banner {
+            background: linear-gradient(135deg, rgba(26, 140, 158, 0.1) 0%, rgba(155, 89, 182, 0.1) 100%);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 50px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            backdrop-filter: blur(12px);
+        }
+
+        .platform-box h4 {
+            font-family: Georgia, serif;
+            font-size: 1.8rem;
+            margin: 0 0 15px 0;
+            color: var(--cyan-accent);
+        }
+
+        .platform-box p {
+            color: var(--text-muted);
+            line-height: 1.6;
+            font-size: 0.95rem;
+            font-weight: 300;
+            margin: 0;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .featured-banner {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .main-title {
+                font-size: 2.5rem;
+            }
+            .featured-banner {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="what-we-do-container">
+        
+        <!-- Header -->
+        <div class="section-header">
+            <div class="eyebrow">Services & Capabilities</div>
+            <h2 class="main-title">End-to-end technology solutions built for performance and scale.</h2>
+            <p class="section-desc">
+                From high-capacity telecommunications networks to bespoke command platforms and ICT strategy, Trancomm delivers accountable technology solutions tailored to private and public sector needs across Southern Africa.
+            </p>
+        </div>
+
+        <!-- 6 Core Pillars Grid -->
+        <div class="services-grid">
+            
+            <!-- Service 1 -->
+            <div class="service-card">
+                <div class="card-number">01</div>
+                <h3 class="card-title">Telecommunications</h3>
+                <p class="card-summary">High-frequency wireless connectivity and robust site engineering built for high uptime environments.</p>
+                <ul class="capability-list">
+                    <li>Point-to-Point & Multipoint Microwave</li>
+                    <li>Radio Frequency (RF) Planning & Surveys</li>
+                    <li>Indoor & Outdoor Enterprise Wi-Fi</li>
+                </ul>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="service-card">
+                <div class="card-number">02</div>
+                <h3 class="card-title">IT Infrastructure & Security</h3>
+                <p class="card-summary">End-to-end physical cabling, network security, and intelligent video surveillance deployments.</p>
+                <ul class="capability-list">
+                    <li>Structured UTP & Fibre Optic Cabling</li>
+                    <li>Cyber Security & Network Defense</li>
+                    <li>Enterprise CCTV & Surveillance</li>
+                </ul>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="service-card">
+                <div class="card-number">03</div>
+                <h3 class="card-title">ICT Consulting & Governance</h3>
+                <p class="card-summary">Strategic advisory helping organizations align ICT architecture with business goals and regulatory mandates.</p>
+                <ul class="capability-list">
+                    <li>TOGAF Enterprise Architecture</li>
+                    <li>COBIT Governance & Compliance</li>
+                    <li>ITIL ITSM & Business Continuity (DRP)</li>
+                </ul>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="service-card">
+                <div class="card-number">04</div>
+                <h3 class="card-title">Bespoke Command Platforms</h3>
+                <p class="card-summary">Integrated control center software and digital transformation platforms for unified operations.</p>
+                <ul class="capability-list">
+                    <li>Octopus Command & Control Centre</li>
+                    <li>OrbusInfinity SaaS Architecture Tool</li>
+                    <li>Multi-System API Integration</li>
+                </ul>
+            </div>
+
+            <!-- Service 5 -->
+            <div class="service-card">
+                <div class="card-number">05</div>
+                <h3 class="card-title">AI & Data Analytics</h3>
+                <p class="card-summary">Advanced intelligence solutions to turn raw organizational data into actionable operational insights.</p>
+                <ul class="capability-list">
+                    <li>AI Video Analysis Platforms</li>
+                    <li>Digital Forensics Solutions</li>
+                    <li>Big Data Analytics & BI Reporting</li>
+                </ul>
+            </div>
+
+            <!-- Service 6 -->
+            <div class="service-card">
+                <div class="card-number">06</div>
+                <h3 class="card-title">Technical Training</h3>
+                <p class="card-summary">Certified skills development empowering teams to manage and secure modern technology assets.</p>
+                <ul class="capability-list">
+                    <li>Cyber Security Awareness</li>
+                    <li>Digital Forensics Fieldwork</li>
+                    <li>Data Analytics & Systems Ops</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- Featured Platforms Spotlight -->
+        <div class="featured-banner">
+            <div class="platform-box">
+                <h4>Octopus Command Engine</h4>
+                <p>An open-architecture command center unifying CCTV, license plate recognition, drones, access control, and incident dispatch into a single logging interface[cite: 1].</p>
+            </div>
+            <div class="platform-box">
+                <h4>OrbusInfinity Architecture</h4>
+                <p>A unified digital blueprint platform enabling executives and IT teams to streamline decision-making, control software costs, and maintain compliance[cite: 1].</p>
+            </div>
+        </div>
+
+    </section>
+
+</body>
+</html>

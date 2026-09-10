@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trancomm Interactive Service Portfolio</title>
+    <style>
+        /* Overall Page Styling */
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #000000;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: #2a5676;
+        }
+
+        /* Layout Container */
+        .layout-container {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 1280px;
+            width: 92%;
+            gap: 40px;
+            margin: 40px auto;
+            align-items: stretch; /* Forces both columns to match height */
+        }
+
+        /* Equal Glassmorphism Panel Styling */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 24px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.05);
+            padding: 35px;
+            flex: 1;
+            min-width: 320px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-sizing: border-box;
+        }
+
+        /* SVG Container Inside Left Panel */
+        .diagram-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .diagram-wrapper svg {
+            width: 100%;
+            max-width: 460px;
+            height: auto;
+            display: block;
+            filter: drop-shadow(0px 8px 16px rgba(0,0,0,0.06));
+        }
+
+        /* Interactive Wedge Hover / Selection Styling */
+        .interactive-wedge {
+            cursor: pointer;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+        .interactive-wedge:hover {
+            opacity: 0.85;
+        }
+        .interactive-wedge.active path {
+            stroke-width: 5px;
+            filter: drop-shadow(0px 0px 8px rgba(0,0,0,0.2));
+        }
+
+        /* Typography Styling */
+        h1 {
+            font-size: 1.8rem;
+            color: #164a69;
+            margin-top: 0;
+            margin-bottom: 8px;
+            line-height: 1.2;
+        }
+
+        p.subtitle {
+            font-size: 0.95rem;
+            line-height: 1.4;
+            margin-bottom: 20px;
+            color: #3b6b8c;
+        }
+
+        .service-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .service-item {
+            background: rgba(255, 255, 255, 0.6);
+            padding: 14px 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .service-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .service-item.active {
+            background: rgba(23, 74, 105, 0.9);
+            color: #ffffff;
+            border-color: #164a69;
+            box-shadow: 0 8px 20px rgba(22, 74, 105, 0.2);
+            transform: scale(1.01);
+        }
+
+        .service-item.active h3,
+        .service-item.active p {
+            color: #ffffff;
+        }
+
+        .service-item h3 {
+            margin: 0 0 2px 0;
+            font-size: 1rem;
+            color: #164a69;
+            transition: color 0.2s ease;
+        }
+
+        .service-item p {
+            margin: 0;
+            font-size: 0.85rem;
+            color: #4a7491;
+            line-height: 1.35;
+            transition: color 0.2s ease;
+        }
+
+        /* Responsive Breakpoint */
+        @media (max-width: 900px) {
+            .layout-container {
+                flex-direction: column;
+            }
+            .glass-panel {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="layout-container">
+        
+        <!-- LEFT COLUMN: EQUAL-SIZED DIAGRAM PANEL -->
+        <div class="glass-panel diagram-wrapper">
+            <svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+                
+                <!-- WEDGE 1: Network Infrastructure & Security (Top) -->
+                <g class="interactive-wedge" onclick="selectService(0)" id="wedge-0">
+                    <g transform="rotate(0 400 400)" stroke-width="3.5" fill="none">
+                        <path d="M 338.5,308.8 L 249.0,176.2 A 270,270 0 0,1 551.0,176.2 L 461.5,308.8" stroke="#ef4b38"/>
+                    </g>
+                    <g transform="translate(378, 135) scale(1.4)">
+                        <rect x="6" y="2" width="20" height="8" rx="1" fill="none" stroke="#2a5676" stroke-width="1.5"/>
+                        <line x1="9" y1="6" x2="11" y2="6" stroke="#2a5676" stroke-width="1.5" stroke-linecap="round"/>
+                        <rect x="6" y="12" width="20" height="8" rx="1" fill="none" stroke="#2a5676" stroke-width="1.5"/>
+                        <path d="M 18,11 L 28,11 L 28,17 C 28,24 23,28 23,28 C 23,28 18,24 18,17 Z" fill="transparent" stroke="#ef4b38" stroke-width="1.5"/>
+                        <path d="M 21,15 V 14 C 21,13 25,13 25,14 V 15 H 26 V 21 H 20 V 15 Z" fill="none" stroke="#ef4b38" stroke-width="1"/>
+                        <rect x="6" y="22" width="20" height="8" rx="1" fill="none" stroke="#2a5676" stroke-width="1.5"/>
+                    </g>
+                    <text x="400" y="210" font-size="14.5px" font-weight="700" fill="#2a5676" text-anchor="middle">Network</text>
+                    <text x="400" y="230" font-size="14.5px" font-weight="700" fill="#2a5676" text-anchor="middle">Infrastructure &amp;</text>
+                    <text x="400" y="250" font-size="14.5px" font-weight="700" fill="#2a5676" text-anchor="middle">Security</text>
+                </g>
+
+                <!-- WEDGE 2: Artificial Intelligence & Big Data (Top Right) -->
+                <g class="interactive-wedge" onclick="selectService(1)" id="wedge-1">
+                    <g transform="rotate(72 400 400)" stroke-width="3.5" fill="none">
+                        <path d="M 338.5,308.8 L 249.0,176.2 A 270,270 0 0,1 551.0,176.2 L 461.5,308.8" stroke="#f9a01b"/>
+                    </g>
+                    <g transform="translate(565, 260) scale(1.4)">
+                        <path d="M 16,4 A 12,12 0 0,1 16,28" fill="none" stroke="#f9a01b" stroke-width="1.5"/>
+                        <path d="M 16,0 v 4 M 24,4 l -2,3 M 30,12 l -4,1 M 32,16 h -4 M 30,20 l -4,-1 M 24,28 l -2,-3 M 16,32 v -4" stroke="#f9a01b" stroke-width="1.5" stroke-linecap="round"/>
+                        <path d="M 16,4 C 10,2 2,6 4,12 C 0,14 0,20 4,22 C 2,28 10,32 16,28" fill="none" stroke="#2a5676" stroke-width="1.5" stroke-linejoin="round"/>
+                        <path d="M 8,12 C 12,12 14,8 16,8 M 8,22 C 12,22 14,26 16,26 M 6,17 C 12,17 14,17 16,17" fill="none" stroke="#2a5676" stroke-width="1.5"/>
+                    </g>
+                    <text x="590" y="335" font-size="14.5px" font-weight="700" fill="#2a5676" text-anchor="middle">Artificial</text>
+                    <text x="590" y="355" font-size="14.5px" font-weight="700" fill="#2a5676" text-anchor="middle">Intelligence &amp;</text>
+                    <text x="590" y="375" font-size="14.5px" font-weight="700" fill="#2a5676" text-anchor="middle">Big Data Analytics</text>
+                </g>
+
+                <!-- WEDGE 3: Octopus – Command & Control (Bottom Right) -->
+                <g class="interactive-wedge" onclick="selectService(2)" id="wedge-2">
+                    <g transform="rotate(144 400 400)" stroke-width="3.5" fill="none">
+                        <path d="M 338.5,308.8 L 249.0,176.2 A 270,270 0 0,1 551.0,176.2 L 461.5,308.8" stroke="#1a8c9e"/>
+                    </g>
+                    <g transform="translate(492, 475) scale(1.5)">
+                        <path d="M 4,20 H 28 V 8 C 28,7 27,6 26,6 H 6 C 5,6 4,7 4,8 Z" fill="none" stroke="#2a5676" stroke-width="1.5"/>
+                        <path d="M 2,20 H 30 C 31,20 32,21 32,22 H 0 C 0,21 1,20 2,20 Z" fill="none" stroke="#2a5676" stroke-width="1.5"/>
+                        <path d="M 11,11 L 8,14 L 11,17 M 15,17 L 17,10 M 21,11 L 24,14 L 21,17" fill="none" stroke="#1a8c9e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </g>
+                    <text x="517" y="555" font-size="14.5px" font-weight="700" fill="#2a5676" text-anchor="middle">Octopus – Command</text>
+                    <text x="517" y="575" font-size="14.5px" font-weight="700" fill="#2a5676" text-anchor="middle">&amp; Control</text>
+                </g>
+
+                <!-- WEDGE 4: Consulting & Training (Bottom Left) -->
+                <g class="interactive-wedge" onclick="selectService(3)" id="wedge-3">
+                    <g transform="rotate(216 400 400)" stroke-width="3.5" fill="none">
+                        <path d="M 338.5,308.8 L 249.0,176.2 A 270,270 0 0,1 551.0,176.2 L 461.5,308.8" stroke="#274f73"/>
+                    </g>
+                    <g transform="translate(258, 475) scale(1.5)">
+                        <circle cx="16" cy="10" r="5" fill="none" stroke="#2a5676" stroke-width="1.5"/>
+                        <path d="M 6,24 C 6,18 10,16 16,16 C 22,16 26,18 26,24" fill="none" stroke="#2a5676" stroke-width="1.5"/>
+                        <path d="M 12,24 L 16,16 L 20,24 M 16,16 V 24" fill="none" stroke="#2a5676" stroke-width="1"/>
+                        <path d="M 10,10 A 6,6 0 0,1 22,10 V 12 H 24 V 8 C 24,3 18,1 16,1 C 14,1 8,3 8,8 V 12 H 10 Z" fill="none" stroke="#ef4b38" stroke-width="1"/>
+                        <circle cx="8" cy="11" r="2" fill="#ef4b38"/>
+                        <circle cx="24" cy="11" r="2" fill="#ef4b38"/>
+                        <path d="M 8,11 A 6,6 0 0,0 12,15" fill="none" stroke="#ef4b38" stroke-width="1.5" stroke-linecap="round"/>
+                    </g>
+                    <text x="283" y="555" font-size="14.5px" font-weight="700" fill="#2a5676" text-anchor="middle">Consulting &amp;</text>
+                    <text x="283" y="575" font-size="14.5px" font-weight="700" fill="#2a5676" text-anchor="middle">Training</text>
+                </g>
+
+                <!-- WEDGE 5: Microwave & Radio Frequency (Top Left) -->
+                <g class="interactive-wedge" onclick="selectService(4)" id="wedge-4">
+                    <g transform="rotate(288 400 400)" stroke-width="3.5" fill="none">
+                        <path d="M 338.5,308.8 L 249.0,176.2 A 270,270 0 0,1 551.0,176.2 L 461.5,308.8" stroke="#8bc53f"/>
+                    </g>
+                    <g transform="translate(185, 260) scale(1.4)">
+                        <g transform="rotate(-45 16 16)">
+                           <rect x="12" y="10" width="8" height="12" fill="none" stroke="#2a5676" stroke-width="1.5"/>
+                           <rect x="2" y="12" width="6" height="8" fill="none" stroke="#2a5676" stroke-width="1.5"/>
+                           <line x1="8" y1="16" x2="12" y2="16" stroke="#2a5676" stroke-width="1.5"/>
+                           <rect x="24" y="12" width="6" height="8" fill="none" stroke="#2a5676" stroke-width="1.5"/>
+                           <line x1="20" y1="16" x2="24" y2="16" stroke="#2a5676" stroke-width="1.5"/>
+                           <path d="M 12,6 L 20,6 L 18,2 L 14,2 Z" fill="none" stroke="#8bc53f" stroke-width="1.5"/>
+                           <line x1="16" y1="2" x2="16" y2="-2" stroke="#8bc53f" stroke-width="1.5"/>
+                           <path d="M 12,-4 A 6,6 0 0,1 20,-4" fill="none" stroke="#8bc53f" stroke-width="1.5" stroke-linecap="round"/>
+                        </g>
+                    </g>
+                    <text x="210" y="340" font-size="14.5px" font-weight="700" fill="#2a5676" text-anchor="middle">Microwave &amp;</text>
+                    <text x="210" y="360" font-size="14.5px" font-weight="700" fill="#2a5676" text-anchor="middle">Radio Frequency</text>
+                </g>
+
+                <!-- CENTER LOGO & CIRCLE -->
+                <circle cx="400" cy="400" r="105" fill="transparent" stroke="#274f73" stroke-width="3"/>
+                <g transform="translate(296, 376) scale(0.31)">
+                    <path d="M 90 25 C 10 25, 20 120, 90 135 C 140 145, 180 130, 210 110" fill="transparent" stroke="#164a69" stroke-width="9" stroke-linecap="round" />
+                    <circle cx="53" cy="98" r="16" fill="#164a69" />
+                    <text x="100" y="100" font-family="Arial, Helvetica, sans-serif" font-weight="900" font-size="76" fill="#164a69" letter-spacing="1">TRAN</text>
+                    <text x="325" y="100" font-family="Arial, Helvetica, sans-serif" font-weight="900" font-size="76" fill="#63666a" letter-spacing="1">COMM</text>
+                    <text x="560" y="128" font-family="Arial, Helvetica, sans-serif" font-weight="600" font-size="24" fill="#a0a3a6" letter-spacing="0.5" text-anchor="end">communications</text>
+                </g>
+            </svg>
+        </div>
+
+        <!-- RIGHT COLUMN: EQUAL-SIZED SERVICE PORTFOLIO PANEL -->
+        <div class="glass-panel">
+            <div>
+                <h1>Service Portfolio</h1>
+                <p class="subtitle">Click any capability on the diagram or list below to explore our targeted technology solutions.</p>
+            </div>
+            
+            <ul class="service-list">
+                <li class="service-item" id="item-0" onclick="selectService(0)">
+                    <h3>Network Infrastructure &amp; Security</h3>
+                    <p>Secure, resilient network architectures and advanced cyber protection protocols.</p>
+                </li>
+                <li class="service-item" id="item-1" onclick="selectService(1)">
+                    <h3>Artificial Intelligence &amp; Big Data Analytics</h3>
+                    <p>Transforming complex operational data streams into actionable real-time insights.</p>
+                </li>
+                <li class="service-item" id="item-2" onclick="selectService(2)">
+                    <h3>Octopus – Command &amp; Control</h3>
+                    <p>Integrated situational awareness and centralized platform management systems.</p>
+                </li>
+                <li class="service-item" id="item-3" onclick="selectService(3)">
+                    <h3>Consulting &amp; Training</h3>
+                    <p>Expert technical advisory, system integration, and workforce capability building.</p>
+                </li>
+                <li class="service-item" id="item-4" onclick="selectService(4)">
+                    <h3>Microwave &amp; Radio Frequency</h3>
+                    <p>High-capacity wireless transmission links and specialized RF engineering services.</p>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <script>
+        function selectService(index) {
+            for (let i = 0; i < 5; i++) {
+                document.getElementById('wedge-' + i).classList.remove('active');
+                document.getElementById('item-' + i).classList.remove('active');
+            }
+            document.getElementById('wedge-' + index).classList.add('active');
+            document.getElementById('item-' + index).classList.add('active');
+        }
+
+        window.onload = function() {
+            selectService(0);
+        };
+    </script>
+
+</body>
+</html>

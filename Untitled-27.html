@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trancomm Employee Portal</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .portal-wrapper {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 1200px;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .portal-header {
+            background-color: #001a33;
+            color: #ffffff;
+            padding: 20px 30px;
+        }
+
+        .portal-header h1 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .portal-body {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            min-height: 600px;
+        }
+
+        .portal-sidebar {
+            background-color: #fbfbfb;
+            border-right: 1px solid #e0e0e0;
+            padding: 30px 20px;
+        }
+
+        .portal-sidebar h2 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #111;
+        }
+
+        .portal-nav {
+            list-style: none;
+        }
+
+        .portal-nav li {
+            margin-bottom: 8px;
+        }
+
+        .portal-nav a {
+            text-decoration: none;
+            color: #555;
+            font-size: 0.95rem;
+            display: block;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+
+        .portal-nav a:hover {
+            color: #004080;
+            background-color: #edf2f7;
+        }
+
+        .portal-nav a.active {
+            color: #ffffff;
+            background-color: #1a8c9e;
+            font-weight: 600;
+        }
+
+        .portal-content {
+            padding: 30px;
+            background-color: #ffffff;
+        }
+
+        .portal-panel {
+            display: none;
+        }
+
+        .portal-panel.active {
+            display: block;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .card {
+            border: 1px dashed #a0a0a0;
+            padding: 24px;
+            margin-bottom: 20px;
+            background-color: #ffffff;
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #111;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 860px) {
+            .portal-body { grid-template-columns: 1fr; }
+            .portal-sidebar { border-right: none; border-bottom: 1px solid #e0e0e0; }
+            .card-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="portal-wrapper">
+        <header class="portal-header">
+            <h1>Trancomm Employee Portal</h1>
+        </header>
+
+        <div class="portal-body">
+            <!-- Sidebar -->
+            <aside class="portal-sidebar">
+                <h2>Navigation</h2>
+                <ul class="portal-nav">
+                    <li><a href="#" data-target="panel-dashboard" class="nav-link active">Dashboard</a></li>
+                    <li><a href="#" data-target="panel-company-info" class="nav-link">Company Information</a></li>
+                    <li><a href="#" data-target="panel-policies" class="nav-link">Policies & Procedures</a></li>
+                    <li><a href="#" data-target="panel-hr" class="nav-link">HR Resources</a></li>
+                    <li><a href="#" data-target="panel-it-support" class="nav-link">IT Support</a></li>
+                    <li><a href="#" data-target="panel-training" class="nav-link">Training</a></li>
+                    <li><a href="#" data-target="panel-documents" class="nav-link">Documents</a></li>
+                    <li><a href="#" data-target="panel-announcements" class="nav-link">Announcements</a></li>
+                    <li><a href="#" data-target="panel-requests" class="nav-link">Employee Requests</a></li>
+                    <li><a href="#" data-target="panel-contact" class="nav-link">Contact</a></li>
+                </ul>
+            </aside>
+
+            <!-- Content Area -->
+            <main class="portal-content">
+                
+                <!-- 1. Dashboard Panel -->
+                <div id="panel-dashboard" class="portal-panel active">
+                    <div class="card">
+                        <h3>Welcome to the Trancomm Employee Portal</h3>
+                        <p>Company updates and employee resources in one place.</p>
+                    </div>
+                    <div class="card-grid">
+                        <div class="card">
+                            <h3>Quick Links</h3>
+                            <p>HR Documents · IT Support · Training · Policies · Leave Requests · Employee Requests</p>
+                        </div>
+                        <div class="card">
+                            <h3>Announcements</h3>
+                            <p>Recent internal announcements and important notices.</p>
+                        </div>
+                        <div class="card">
+                            <h3>Employee Requests</h3>
+                            <p>IT Support · HR · Training · General Request</p>
+                        </div>
+                        <div class="card">
+                            <h3>Company Resources</h3>
+                            <p>Policies · Procedures · Forms · Training Materials · Important Documents</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Company Information -->
+                <div id="panel-company-info" class="portal-panel">
+                    <div class="card">
+                        <h3>Company Information</h3>
+                        <p>Access organizational charts, vision statements, branch locations (Centurion & Pretoria East), and executive leadership profiles.</p>
+                    </div>
+                </div>
+
+                <!-- 3. Policies & Procedures -->
+                <div id="panel-policies" class="portal-panel">
+                    <div class="card">
+                        <h3>Policies & Procedures</h3>
+                        <p>Review internal ICT governance standards, information security guidelines, risk treatment policies, and workplace conduct protocols.</p>
+                    </div>
+                </div>
+
+                <!-- 4. HR Resources -->
+                <div id="panel-hr" class="portal-panel">
+                    <div class="card">
+                        <h3>HR Resources</h3>
+                        <p>Manage leave applications, view payroll information, update personal records, and access employee benefit documentation.</p>
+                    </div>
+                </div>
+
+                <!-- 5. IT Support -->
+                <div id="panel-it-support" class="portal-panel">
+                    <div class="card">
+                        <h3>IT Support Services</h3>
+                        <p>Submit a helpdesk ticket, report network hardware anomalies, access hardware troubleshooting guides, or request software provisioning.</p>
+                    </div>
+                </div>
+
+                <!-- 6. Training -->
+                <div id="panel-training" class="portal-panel">
+                    <div class="card">
+                        <h3>Employee Training & Skill Development</h3>
+                        <p>Access modules for Cybersecurity, Digital Forensics, Data Analytics, and Business Process Modeling (BPMN 2.0).</p>
+                    </div>
+                </div>
+
+                <!-- 7. Documents -->
+                <div id="panel-documents" class="portal-panel">
+                    <div class="card">
+                        <h3>Document Central</h3>
+                        <p>Download official corporate templates, requirements matrices, compliance documentation, and auditing forms.</p>
+                    </div>
+                </div>
+
+                <!-- 8. Announcements -->
+                <div id="panel-announcements" class="portal-panel">
+                    <div class="card">
+                        <h3>Internal Announcements</h3>
+                        <p>Stay informed with current enterprise updates, upcoming maintenance windows, and company-wide operational notices.</p>
+                    </div>
+                </div>
+
+                <!-- 9. Employee Requests -->
+                <div id="panel-requests" class="portal-panel">
+                    <div class="card">
+                        <h3>Employee Request Portal</h3>
+                        <p>Submit requests for IT hardware procurement, HR assistance, specialized training enrollment, or general administrative support.</p>
+                    </div>
+                </div>
+
+                <!-- 10. Contact -->
+                <div id="panel-contact" class="portal-panel">
+                    <div class="card">
+                        <h3>Internal Directory & Office Contacts</h3>
+                        <p>General Line: +27 (0) 66 247 8307 | Admin: admin@trnits.co.za | Support: support@trnits.co.za</p>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const panels = document.querySelectorAll('.portal-panel');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    
+                    const targetPanelId = link.getAttribute('data-target');
+
+                    navLinks.forEach(item => item.classList.remove('active'));
+                    panels.forEach(panel => panel.classList.remove('active'));
+
+                    link.classList.add('active');
+                    document.getElementById(targetPanelId).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

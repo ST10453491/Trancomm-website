@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Trancomm</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --sidebar-bg: #0d151c;
+            --card-bg: rgba(20, 20, 20, 0.75);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --cyan-accent: #1a8c9e;
+            --text-main: #f4f4f2;
+            --text-muted: #a0a0a0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* --- Main Layout Grid --- */
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            min-height: 100vh;
+            width: 100%;
+        }
+
+        /* --- Left Content Area --- */
+        .contact-main {
+            padding: 80px 60px;
+            background: radial-gradient(circle at 10% 20%, #111a1f 0%, var(--bg-color) 70%);
+            position: relative;
+        }
+
+        .section-eyebrow {
+            color: var(--cyan-accent);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .main-title {
+            font-family: Georgia, serif;
+            font-size: 3rem;
+            font-weight: 400;
+            color: #ffffff;
+            margin-bottom: 16px;
+            line-height: 1.15;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+        }
+
+        .divider {
+            height: 1px;
+            background-color: var(--card-border);
+            margin-bottom: 40px;
+            width: 100%;
+        }
+
+        .office-section {
+            margin-bottom: 40px;
+        }
+
+        .office-title {
+            font-family: Georgia, serif;
+            font-size: 1.35rem;
+            color: #ffffff;
+            margin-bottom: 16px;
+        }
+
+        .office-address {
+            font-style: normal;
+            font-size: 1rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* --- Right Sidebar Area --- */
+        .contact-sidebar {
+            background-color: var(--sidebar-bg);
+            border-left: 1px solid var(--card-border);
+            padding: 80px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .sidebar-block {
+            margin-bottom: 40px;
+        }
+
+        .sidebar-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .sidebar-heading {
+            font-family: Georgia, serif;
+            font-size: 1.4rem;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .contact-item {
+            margin-bottom: 14px;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .contact-item strong {
+            color: #ffffff;
+            font-weight: 600;
+            display: inline-block;
+            margin-right: 6px;
+        }
+
+        .contact-link {
+            color: var(--cyan-accent);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .contact-link:hover {
+            color: #22a3b8;
+            text-decoration: underline;
+        }
+
+        .manager-name {
+            font-size: 1.05rem;
+            color: #ffffff;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1024px) {
+            .contact-layout {
+                grid-template-columns: 1fr;
+            }
+            .contact-main {
+                padding: 50px 24px;
+            }
+            .contact-sidebar {
+                padding: 50px 24px;
+                border-left: none;
+                border-top: 1px solid var(--card-border);
+            }
+            .main-title {
+                font-size: 2.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="contact-layout">
+        
+        <!-- Left Main Column -->
+        <main class="contact-main">
+            <span class="section-eyebrow">Contact</span>
+            <h1 class="main-title">Let's discuss your technology requirements.</h1>
+            <p class="subtitle">Use the enquiry form or contact the relevant Trancomm office directly.</p>
+            
+            <div class="divider"></div>
+
+            <div class="office-section">
+                <h2 class="office-title">Centurion Office</h2>
+                <address class="office-address">
+                    246 Hall Street<br>
+                    West End Office Park<br>
+                    Centurion, Pretoria<br>
+                    0157
+                </address>
+            </div>
+
+            <div class="divider" style="margin: 40px 0;"></div>
+
+            <div class="office-section">
+                <h2 class="office-title">Pretoria East Office</h2>
+                <address class="office-address">
+                    169 Corobay Avenue<br>
+                    Waterkloof Glen<br>
+                    Pretoria East<br>
+                    0010
+                </address>
+            </div>
+        </main>
+
+        <!-- Right Sidebar Column -->
+        aside class="contact-sidebar">
+            <div class="sidebar-block">
+                <h2 class="sidebar-heading">General</h2>
+                <div class="contact-item">
+                    <strong>Office & Fax:</strong> <a href="tel:+27662478307" class="contact-link">+27 (0) 66 247 8307</a>
+                </div>
+                <div class="contact-item">
+                    <strong>Email:</strong> <a href="mailto:admin@trnits.co.za" class="contact-link">admin@trnits.co.za</a>
+                </div>
+            </div>
+
+            <div class="sidebar-block">
+                <h2 class="sidebar-heading">Business Manager</h2>
+                <div class="manager-name">Nomo Nkosi</div>
+                <div class="contact-item">
+                    <a href="tel:+27834471463" class="contact-link">+27 83 447 1463</a>
+                </div>
+                <div class="contact-item">
+                    <a href="mailto:nomo@trnits.co.za" class="contact-link">nomo@trnits.co.za</a>
+                </div>
+            </div>
+
+            <div class="sidebar-block" style="margin-top: 20px;">
+                <div class="contact-item">
+                    <a href="mailto:support@trnits.co.za" class="contact-link">support@trnits.co.za</a>
+                </div>
+            </div>
+        </aside>
+
+    </div>
+
+</body>
+</html>

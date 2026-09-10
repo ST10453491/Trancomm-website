@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clients | Trancomm</title>
+    <style>
+        :root {
+            --bg-color: #050505;
+            --card-bg: #111111;
+            --cyan-accent: #1a8c9e;
+            --gold-accent: #dca543;
+            --text-main: #f4f4f2;
+            --text-muted: #a0a0a0;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Subtle tech background pattern */
+        .bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle at 90% 10%, rgba(26, 140, 158, 0.05) 0%, transparent 50%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 80px 40px;
+            position: relative;
+        }
+
+        /* The distinctive L-shaped golden accent frame */
+        .accent-frame {
+            position: relative;
+            padding-left: 40px;
+            padding-bottom: 60px;
+            border-left: 2px solid var(--gold-accent);
+            border-bottom: 2px solid var(--gold-accent);
+            border-bottom-left-radius: 12px;
+        }
+        
+        .accent-frame::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--bg-color);
+            border: 2px solid var(--gold-accent);
+        }
+
+        /* Header Styles */
+        .header-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 50px;
+            transform: translateY(-20px);
+        }
+
+        .page-title {
+            font-family: Georgia, serif;
+            font-size: 3.5rem;
+            font-weight: 400;
+            margin: 0;
+            color: var(--text-main);
+        }
+
+        .title-icon {
+            width: 65px;
+            height: 65px;
+            background-color: rgba(26, 140, 158, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--cyan-accent);
+        }
+
+        .title-icon svg {
+            width: 38px;
+            height: 38px;
+            stroke: var(--cyan-accent);
+            fill: none;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* Main Grid Layout */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 60px;
+            align-items: stretch;
+            position: relative;
+            margin-bottom: -100px; 
+        }
+
+        /* Text Content Area */
+        .text-content {
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid #222;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Clients 2-Column Grid inside the card */
+        .clients-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px 30px;
+        }
+
+        .client-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .client-list li {
+            position: relative;
+            padding-left: 18px;
+            margin-bottom: 16px;
+            font-size: 0.9rem;
+            color: #d0d0d0;
+            line-height: 1.4;
+            transition: color 0.2s ease;
+        }
+
+        .client-list li:hover {
+            color: #ffffff;
+        }
+
+        .client-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 7px;
+            width: 5px;
+            height: 5px;
+            background-color: var(--cyan-accent);
+            border-radius: 50%;
+        }
+
+        /* Image Section */
+        .image-container {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            display: flex;
+            z-index: 1;
+            height: calc(100% + 80px);
+            transform: translateY(-40px);
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+
+        .image-container:hover img {
+            transform: scale(1.05);
+        }
+        
+        .image-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to left, rgba(5,5,5,0) 40%, var(--bg-color) 100%);
+            z-index: 1;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1100px) {
+            .clients-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+                margin-bottom: 0;
+            }
+            .image-container {
+                height: 400px;
+                transform: translateY(0);
+                order: -1;
+                margin-bottom: 30px;
+            }
+            .accent-frame {
+                padding-bottom: 40px;
+                border-bottom: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2.5rem;
+            }
+            .container {
+                padding: 40px 20px;
+            }
+            .accent-frame {
+                padding-left: 20px;
+            }
+            .text-content {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-pattern"></div>
+
+    <div class="container">
+        <!-- The L-shaped framing line -->
+        <div class="accent-frame">
+            
+            <div class="header-wrapper">
+                <h1 class="page-title">Clients</h1>
+                <div class="title-icon">
+                    <!-- Custom SVG Icon representing Enterprise Partnerships / Handshake -->
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                </div>
+            </div>
+            
+            <div class="content-grid">
+                
+                <!-- Left Box: Client List Content -->
+                <div class="text-content">
+                    <div class="clients-grid">
+                        
+                        <!-- Column 1 -->
+                        <ul class="client-list">
+                            <li>Road Traffic Management Corporation (RTMC)</li>
+                            <li>State Information Technology Agency (SITA)</li>
+                            <li>Sentech (SOE)</li>
+                            <li>South African Human Rights Commission (SAHRC)</li>
+                            <li>South African Police Services (SAPS)</li>
+                            <li>Department of Social Development (DSD)</li>
+                            <li>Driving License Card Account (DLCA)</li>
+                            <li>National Prosecuting Authority (NPA)</li>
+                        </ul>
+
+                        <!-- Column 2 -->
+                        <ul class="client-list">
+                            <li>Office of Chief Justice (OCJ)</li>
+                            <li>Eng.Co</li>
+                            <li>Gauteng Broadband Network (GBN)</li>
+                            <li>Vodacom</li>
+                            <li>MTN</li>
+                            <li>Cell C</li>
+                            <li>Telkom 8ta</li>
+                        </ul>
+
+                    </div>
+                </div>
+
+                
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT for Better Work | Trancomm</title>
+    <style>
+        :root {
+            --bg-color: #050505;
+            --card-bg: rgba(15, 15, 15, 0.75);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --cyan-accent: #1a8c9e;
+            --gold-accent: #dca543;
+            --text-main: #f4f4f2;
+            --text-muted: #a0a0a0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- Global Network Mesh Background --- */
+        .page-wrapper {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            background: radial-gradient(circle at 50% 20%, #111a1f 0%, var(--bg-color) 70%);
+            padding-bottom: 100px;
+        }
+
+        .page-wrapper::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: 
+                radial-gradient(circle, rgba(26, 140, 158, 0.12) 1px, transparent 1px),
+                linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 50px 50px, 100px 100px, 100px 100px;
+            opacity: 0.5;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* --- Typography & Headings --- */
+        .section-eyebrow {
+            color: var(--cyan-accent);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .main-title {
+            font-family: Georgia, serif;
+            font-size: 3.5rem;
+            font-weight: 400;
+            color: #ffffff;
+            margin-bottom: 16px;
+            line-height: 1.15;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 900px;
+            font-weight: 300;
+            margin-bottom: 40px;
+        }
+
+        .section-heading {
+            font-family: Georgia, serif;
+            font-size: 2.2rem;
+            font-weight: 400;
+            color: #ffffff;
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background-color: var(--cyan-accent);
+        }
+
+        /* --- Hero Section --- */
+        .hero-section {
+            padding: 100px 0 60px 0;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .intro-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 40px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            margin-top: 20px;
+        }
+
+        .intro-card p {
+            font-size: 1.1rem;
+            color: #d8d8d8;
+            margin-bottom: 16px;
+        }
+
+        .intro-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* --- Grid Layouts --- */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .section-block {
+            padding: 80px 0;
+        }
+
+        /* --- Glassmorphism Cards --- */
+        .glass-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 32px;
+            backdrop-filter: blur(8px);
+            transition: all 0.35s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--cyan-accent);
+            background: rgba(26, 140, 158, 0.08);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(26, 140, 158, 0.2);
+        }
+
+        .card-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.05);
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-family: Georgia, serif;
+            pointer-events: none;
+        }
+
+        .card-title {
+            font-family: Georgia, serif;
+            font-size: 1.35rem;
+            color: #ffffff;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .card-text {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* --- Bullet Lists --- */
+        .feature-list {
+            list-style: none;
+            margin-top: auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .feature-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 12px;
+            font-size: 0.92rem;
+            color: #d0d0d0;
+        }
+
+        .feature-list li strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .feature-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 6px;
+            height: 6px;
+            background-color: var(--cyan-accent);
+            border-radius: 50%;
+        }
+
+        /* --- Impact Section --- */
+        .impact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            background: rgba(255,255,255,0.02);
+            padding: 24px;
+            border-radius: 12px;
+            border-left: 3px solid var(--cyan-accent);
+        }
+
+        .impact-icon {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+            stroke: var(--cyan-accent);
+            fill: none;
+            stroke-width: 2;
+        }
+
+        /* --- Partners Section --- */
+        .partner-card {
+            border-top: 3px solid var(--gold-accent);
+            align-items: center;
+            text-align: center;
+        }
+
+        .partner-name {
+            color: var(--gold-accent);
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            font-family: Georgia, serif;
+        }
+
+        /* --- Advantage & CTA Block --- */
+        .cta-box {
+            background: linear-gradient(135deg, rgba(26, 140, 158, 0.15) 0%, rgba(15, 15, 15, 0.9) 100%);
+            border: 1px solid var(--cyan-accent);
+            border-radius: 20px;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 35px;
+        }
+
+        .btn {
+            padding: 16px 36px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .btn-primary {
+            background-color: var(--cyan-accent);
+            color: #ffffff;
+            border: 1px solid var(--cyan-accent);
+        }
+
+        .btn-primary:hover {
+            background-color: #22a3b8;
+            box-shadow: 0 0 20px rgba(26, 140, 158, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            border-color: #ffffff;
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1024px) {
+            .grid-3 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .main-title {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .grid-3, .grid-2 {
+                grid-template-columns: 1fr;
+            }
+            .main-title {
+                font-size: 2.2rem;
+            }
+            .subtitle {
+                font-size: 1.05rem;
+            }
+            .cta-box {
+                padding: 40px 20px;
+            }
+            .btn-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-wrapper">
+        <div class="container">
+
+            <!-- Hero Section -->
+            <header class="hero-section">
+                <span class="section-eyebrow">Enterprise Productivity</span>
+                <h1 class="main-title">IT That Supports Better Work</h1>
+                <p class="subtitle">Empowering Enterprises with Intelligent Infrastructure, Seamless Collaboration, and Frictionless Digital Workflows.</p>
+                
+                <div class="intro-card">
+                    <p>Modern enterprise productivity is no longer constrained by physical office walls—it is defined by the quality, reliability, and security of the technology behind every workflow. Technology that supports "better work" removes friction from daily operations, automates repetitive overhead, and connects teams seamlessly regardless of location.</p>
+                    <p>At Trancomm, we deliver end-to-end Information Technology architectures designed to align advanced computing, intelligent networking, and enterprise-grade security directly with business outcomes. By turning complex IT systems into intuitive, reliable utilities, we empower your workforce to focus on high-value innovation, strategic execution, and exceptional service delivery.</p>
+                </div>
+            </header>
+
+            <!-- Core Pillars Section -->
+            <section class="section-block">
+                <span class="section-eyebrow">Framework</span>
+                <h2 class="section-heading">Core Pillars of Better Work IT</h2>
+                
+                <div class="grid-2">
+                    <!-- Pillar 1 -->
+                    <div class="glass-card">
+                        <span class="card-number">01</span>
+                        <h3 class="card-title">Digital Workplace & Hybrid Collaboration</h3>
+                        <p class="card-text">To perform at their best, employees require instant, uninterrupted access to tools, context, and team communication without compromising security.</p>
+                        <ul class="feature-list">
+                            <li><strong>Unified Digital Workspaces:</strong> Secure, cloud-enabled environments for any-device access.</li>
+                            <li><strong>Seamless Collaboration:</strong> VoIP, video conferencing, and real-time co-authoring suites.</li>
+                            <li><strong>Frictionless Identity:</strong> SSO and adaptive Multi-Factor Authentication (MFA).</li>
+                        </ul>
+                    </div>
+
+                    <!-- Pillar 2 -->
+                    <div class="glass-card">
+                        <span class="card-number">02</span>
+                        <h3 class="card-title">Intelligent Workflow Automation & ITSM</h3>
+                        <p class="card-text">Manual data entry, fragmented approvals, and slow support tickets stall business momentum. Modern IT replaces operational bottlenecks with automated intelligence.</p>
+                        <ul class="feature-list">
+                            <li><strong>Business Process Automation:</strong> Digitizing manual procedures into error-free digital pipelines.</li>
+                            <li><strong>ITSM Optimization:</strong> Aligning service desk operations with international ITIL frameworks.</li>
+                            <li><strong>Centralized Dashboards:</strong> Connecting legacy systems to modern analytics engines.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Pillar 3 -->
+                    <div class="glass-card">
+                        <span class="card-number">03</span>
+                        <h3 class="card-title">High-Performance Infrastructure & Cloud</h3>
+                        <p class="card-text">Application responsiveness and zero latency are critical to daily productivity. A slow network is an immediate barrier to effective work.</p>
+                        <ul class="feature-list">
+                            <li><strong>SD-WAN Networking:</strong> Optimizing branch traffic to guarantee priority bandwidth.</li>
+                            <li><strong>Hybrid Cloud Flexibility:</strong> Private cloud control mixed with public cloud scalability.</li>
+                            <li><strong>High-Availability Architectures:</strong> Redundant hardware ensuring 99.99% uptime.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Pillar 4 -->
+                    <div class="glass-card">
+                        <span class="card-number">04</span>
+                        <h3 class="card-title">Embedded Security & Operational Resilience</h3>
+                        <p class="card-text">True productivity requires confidence. Security should protect corporate assets without creating frustrating roadblocks for legitimate users.</p>
+                        <ul class="feature-list">
+                            <li><strong>Zero-Trust Architecture:</strong> Continuous background verification of identity and devices.</li>
+                            <li><strong>Proactive Endpoint Protection:</strong> AI-driven EDR to neutralize threats before impact.</li>
+                            <li><strong>Automated Business Continuity:</strong> Instant failover protocols for maximum operational resilience.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Strategic Business Impact -->
+            <section class="section-block">
+                <span class="section-eyebrow">Value Proposition</span>
+                <hHere is the HTML and CSS to build the "Information Technology that Supports Better Work" section. 
+
+This layout uses a modern **glassmorphism** design while keeping the text contrast high to meet **WCAG 2.0 accessibility standards**. I've also included placeholder text that highlights key IT pillars like workflow optimization and secure infrastructure.
+
+### The HTML Structure
+
+```html
+<section class="it-solutions-container">
+  <div class="glass-panel">
+    <header class="section-header">
+      <h2>Information Technology That Supports Better Work</h2>
+      <p>Empowering teams through seamless connectivity, robust security, and optimized processes.</p>
+    </header>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="icon">🔄</div>
+        <h3>Optimized Workflows</h3>
+        <p>Streamlining daily operations and removing bottlenecks through smart process automation.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="icon">🛡️</div>
+        <h3>Secure Infrastructure</h3>
+        <p>Protecting critical assets with enterprise-grade information risk management frameworks.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="icon">📱</div>
+        <h3>Accessible Interfaces</h3>
+        <p>Designing user-centric, WCAG-compliant systems that ensure usability for all team members.</p>
+      </div>
+    </div>
+  </div>
+</section>

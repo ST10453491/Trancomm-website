@@ -1,0 +1,15 @@
+@import url("../site.css");
+
+.page-hero, .section { text-align: center; }
+.page-hero { position: relative; overflow: hidden; background: var(--black); }
+.page-hero-video, .page-hero-overlay { position: absolute; inset: 0; width: 100%; height: 100%; }
+.page-hero-video { object-fit: cover; object-position: center; }
+.page-hero-overlay { background: rgba(0, 0, 0, .62); }
+.page-hero .container { position: relative; z-index: 1; }
+.section .split > * { margin-right: auto; margin-left: auto; }
+.section .card .list { text-align: center; }
+.section .card .list li { padding: 14px 0; }
+.section .card .list li:before { position: static; margin-right: 10px; }
+.about-profile { max-width: 850px; }
+.about-profile p:not(.eyebrow) { margin-right: auto; margin-left: auto; color: var(--gray); }
+.about-profile-image { display: block; width: min(100%, 760px); height: auto; margin: 48px auto 0; border: 1px solid rgba(83, 174, 199, .45); }

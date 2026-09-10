@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bespoke Technology Solutions | Trancomm</title>
+    <style>
+        :root {
+            --bg-color: #050505;
+            --card-bg: rgba(15, 15, 15, 0.75);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --cyan-accent: #1a8c9e;
+            --gold-accent: #dca543;
+            --text-main: #f4f4f2;
+            --text-muted: #a0a0a0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- Network Mesh Canvas Background --- */
+        .page-wrapper {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            background: radial-gradient(circle at 50% 20%, #111a1f 0%, var(--bg-color) 70%);
+            padding-bottom: 100px;
+        }
+
+        .page-wrapper::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: 
+                radial-gradient(circle, rgba(26, 140, 158, 0.15) 1px, transparent 1px),
+                linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 50px 50px, 100px 100px, 100px 100px;
+            opacity: 0.45;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* --- Typography --- */
+        .section-eyebrow {
+            color: var(--cyan-accent);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .main-title {
+            font-family: Georgia, serif;
+            font-size: 3.5rem;
+            font-weight: 400;
+            color: #ffffff;
+            margin-bottom: 16px;
+            line-height: 1.15;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 850px;
+            font-weight: 300;
+            margin-bottom: 40px;
+        }
+
+        .section-heading {
+            font-family: Georgia, serif;
+            font-size: 2.2rem;
+            font-weight: 400;
+            color: #ffffff;
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background-color: var(--cyan-accent);
+        }
+
+        /* --- Hero Section --- */
+        .hero-section {
+            padding: 100px 0 60px 0;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .intro-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 40px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            margin-top: 20px;
+        }
+
+        .intro-card p {
+            font-size: 1.1rem;
+            color: #d8d8d8;
+            margin-bottom: 16px;
+        }
+
+        .intro-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* --- Grids --- */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .grid-5 {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+        }
+
+        .section-block {
+            padding: 80px 0;
+        }
+
+        /* --- Glass Cards --- */
+        .glass-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 32px;
+            backdrop-filter: blur(8px);
+            transition: all 0.35s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--cyan-accent);
+            background: rgba(26, 140, 158, 0.08);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(26, 140, 158, 0.2);
+        }
+
+        .card-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.04);
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-family: Georgia, serif;
+            pointer-events: none;
+        }
+
+        .card-title {
+            font-family: Georgia, serif;
+            font-size: 1.35rem;
+            color: #ffffff;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .card-text {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* --- Feature Lists --- */
+        .feature-list {
+            list-style: none;
+            margin-top: auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .feature-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 12px;
+            font-size: 0.92rem;
+            color: #d0d0d0;
+        }
+
+        .feature-list li strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .feature-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 6px;
+            height: 6px;
+            background-color: var(--cyan-accent);
+            border-radius: 50%;
+        }
+
+        /* --- Process / Methodology Cards --- */
+        .step-card {
+            background: rgba(20, 20, 20, 0.6);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 24px;
+            backdrop-filter: blur(6px);
+            position: relative;
+            border-top: 3px solid var(--cyan-accent);
+        }
+
+        .step-num {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--cyan-accent);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .step-title {
+            font-size: 1.1rem;
+            color: #ffffff;
+            margin-bottom: 8px;
+            font-family: Georgia, serif;
+        }
+
+        .step-text {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* --- Advantage Cards --- */
+        .advantage-card {
+            border-left: 3px solid var(--gold-accent);
+        }
+
+        .advantage-card:hover {
+            border-color: var(--gold-accent);
+            background: rgba(220, 165, 67, 0.08);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(220, 165, 67, 0.2);
+        }
+
+        /* --- CTA Block --- */
+        .cta-box {
+            background: linear-gradient(135deg, rgba(26, 140, 158, 0.15) 0%, rgba(15, 15, 15, 0.9) 100%);
+            border: 1px solid var(--cyan-accent);
+            border-radius: 20px;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 35px;
+        }
+
+        .btn {
+            padding: 16px 36px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .btn-primary {
+            background-color: var(--cyan-accent);
+            color: #ffffff;
+            border: 1px solid var(--cyan-accent);
+        }
+
+        .btn-primary:hover {
+            background-color: #22a3b8;
+            box-shadow: 0 0 20px rgba(26, 140, 158, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            border-color: #ffffff;
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .grid-5 {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .grid-4, .grid-2 {
+                grid-template-columns: 1fr;
+            }
+            .grid-5 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .main-title {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .grid-5 {
+                grid-template-columns: 1fr;
+            }
+            .main-title {
+                font-size: 2.2rem;
+            }
+            .subtitle {
+                font-size: 1.05rem;
+            }
+            .cta-box {
+                padding: 40px 20px;
+            }
+            .btn-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-wrapper">
+        <div class="container">
+
+            <!-- Hero Section -->
+            <header class="hero-section">
+                <span class="section-eyebrow">Custom Engineering</span>
+                <h1 class="main-title">Bespoke Technology Solutions</h1>
+                <p class="subtitle">Engineered for Complexity. Customized for Operational Supremacy.</p>
+                
+                <div class="intro-card">
+                    <p>Off-the-shelf software and standardized hardware packages rarely fit the high-stakes operational realities of modern government agencies, telecommunications giants, and large-scale enterprises. When standard off-the-shelf tools demand that you change your core business processes to fit their structural limitations, organizational innovation stops.</p>
+                    <p>At Trancomm, our Bespoke Technology Solutions division bridges the gap between complex operational requirements and custom-engineered technology. We design, build, and deploy tailored software platforms, custom hardware integrations, and specialized network systems built around your exact workflows, regulatory frameworks, and security mandates. From custom command-and-control dashboards to specialized system integration, we deliver solutions engineered specifically for your organization.</p>
+                </div>
+            </header>
+
+            <!-- Core Pillars -->
+            <section class="section-block">
+                <span class="section-eyebrow">Specialized Disciplines</span>
+                <h2 class="section-heading">Core Pillars of Bespoke Engineering</h2>
+                
+                <div class="grid-2">
+                    <!-- Pillar 1 -->
+                    <div class="glass-card">
+                        <span class="card-number">01</span>
+                        <h3 class="card-title">Custom Software & Platform Engineering</h3>
+                        <p class="card-text">Generic enterprise software forces operational compromise. Our engineering team develops modular, scalable, and secure applications designed around your exact business logic.</p>
+                        <ul class="feature-list">
+                            <li><strong>Tailored Enterprise Portals & Dashboards:</strong> High-contrast glassmorphism visual interfaces built for rapid operational data intake.</li>
+                            <li><strong>Custom Process Automation (BPMN 2.0):</strong> Translating unique operational flows into automated digital pipelines with complete audit trails.</li>
+                            <li><strong>Legacy System Modernization:</strong> Custom API middleware connecting legacy databases directly into next-generation cloud architectures.</li>
+                            <li><strong>Accessibility & Usability (WCAG 2.0):</strong> Accessible, responsive web and mobile platforms built to high international standards.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Pillar 2 -->
+                    <div class="glass-card">
+                        <span class="card-number">02</span>
+                        <h3 class="card-title">Tailored System & Hardware Integration</h3>
+                        <p class="card-text">Hardware and software must act as a unified ecosystem. We specialize in bringing disparate physical and digital technologies under single-pane management platforms.</p>
+                        <ul class="feature-list">
+                            <li><strong>Command & Control (PSIM Integration):</strong> Customizing platforms like Octopus to unify CCTV, access control, and environmental sensors.</li>
+                            <li><strong>Specialized IoT & Sensor Architectures:</strong> Custom hardware-to-cloud telemetry channels for remote asset tracking and smart facility management.</li>
+                            <li><strong>Cross-Platform Interoperability:</strong> Bridging proprietary vendor hardware with open-standards software to prevent vendor lock-in.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Pillar 3 -->
+                    <div class="glass-card">
+                        <span class="card-number">03</span>
+                        <h3 class="card-title">Specialized Network & Telecom Engineering</h3>
+                        <p class="card-text">When standard connectivity packages fail to meet latency, security, or coverage demands, we design bespoke topologies engineered for extreme performance.</p>
+                        <ul class="feature-list">
+                            <li><strong>Private Network Deployment:</strong> Tailored private LTE/5G and high-capacity microwave links for high-density or remote industrial sites.</li>
+                            <li><strong>Custom Fiber Architectures (FTTx):</strong> Specialized route layouts, redundant ring topologies, and dedicated backhaul connections.</li>
+                            <li><strong>Edge Computing Deployments:</strong> Localized processing hardware at remote nodes to guarantee continuous operation during outages.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Pillar 4 -->
+                    <div class="glass-card">
+                        <span class="card-number">04</span>
+                        <h3 class="card-title">Custom Risk Management & Governance</h3>
+                        <p class="card-text">Every bespoke solution is architected around the strict security and compliance rules governing your specific sector.</p>
+                        <ul class="feature-list">
+                            <li><strong>Embedded Zero-Trust Architecture:</strong> Customizing access control matrices, encryption protocols, and multi-factor authentication directly into tools.</li>
+                            <li><strong>Framework Alignment:</strong> Built in accordance with ISO 31000 (Risk Management), ISO 27001, NIST, and Capability Maturity Models.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Methodology -->
+            <section class="section-block">
+                <span class="section-eyebrow">Execution Lifecycle</span>
+                <h2 class="section-heading">Our Engineering Methodology</h2>
+
+                <div class="grid-5">
+                    <div class="step-card">
+                        <span class="step-num">Step 01</span>
+                        <h3 class="step-title">Deep Discovery</h3>
+                        <p class="step-text">Mapping your operational ecosystem, identifying process bottlenecks, and defining strict technical requirements.</p>
+                    </div>
+
+                    <div class="step-card">
+                        <span class="step-num">Step 02</span>
+                        <h3 class="step-title">Architecture</h3>
+                        <p class="step-text">Modeling custom system architectures, schemas, hardware specs, and UI layouts before writing code.</p>
+                    </div>
+
+                    <div class="step-card">
+                        <span class="step-num">Step 03</span>
+                        <h3 class="step-title">Agile Build</h3>
+                        <p class="step-text">Constructing your solution in modular iterations with rapid prototyping for continuous operational testing.</p>
+                    </div>
+
+                    <div class="step-card">
+                        <span class="step-num">Step 04</span>
+                        <h3 class="step-title">Hardening</h3>
+                        <p class="step-text">Rigorous stress testing, security hardening, penetration testing, and compatibility validation against existing systems.</p>
+                    </div>
+
+                    <div class="step-card">
+                        <span class="step-num">Step 05</span>
+                        <h3 class="step-title">Deployment</h3>
+                        <p class="step-text">Seamless system integration, specialized staff training, and long-term engineering maintenance support.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Why Choose Bespoke -->
+            <section class="section-block">
+                <span class="section-eyebrow">Strategic Advantage</span>
+                <h2 class="section-heading">Why Choose Bespoke Over Off-the-Shelf?</h2>
+
+                <div class="grid-4">
+                    <div class="glass-card advantage-card">
+                        <h3 class="card-title">100% Operational Alignment</h3>
+                        <p class="card-text">Technology built precisely around your existing organizational workflows, eliminating painful procedural workarounds.</p>
+                    </div>
+
+                    <div class="glass-card advantage-card">
+                        <h3 class="card-title">Total Ownership & Control</h3>
+                        <p class="card-text">Complete independence over your custom system architecture, data pipelines, and long-term feature roadmap.</p>
+                    </div>
+
+                    <div class="glass-card advantage-card">
+                        <h3 class="card-title">Uncompromising Security</h3>
+                        <p class="card-text">Purpose-built security models designed specifically for your domain's unique threat landscape and regulatory duties.</p>
+                    </div>
+
+                    <div class="glass-card advantage-card">
+                        <h3 class="card-title">Future-Proof Scalability</h3>
+                        <p class="card-text">Modular codebases and flexible hardware architectures designed to expand effortlessly as your enterprise grows.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA -->
+            <section class="section-block">
+                <div class="cta-box">
+                    <span class="section-eyebrow">Tailored Engineering</span>
+                    <h2 class="main-title" style="font-size: 2.5rem;">Ready for a Solution Built Exclusively for You?</h2>
+                    <p class="card-text" style="max-width: 800px; margin: 0 auto; font-size: 1.05rem;">
+                        Eliminate operational compromises with custom-engineered technology solutions tailored to your organization's exact needs.
+                    </p>
+
+                    <div class="btn-group">
+                        <a href="#consultation" class="btn btn-primary">Schedule Engineering Consultation</a>
+                        <a href="#proposal" class="btn btn-secondary">Request Custom Proposal</a>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+</body>
+</html>

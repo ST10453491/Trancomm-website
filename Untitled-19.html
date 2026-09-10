@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clients | Trancomm</title>
+    <style>
+        :root {
+            --bg-color: #050505;
+            --cyan-accent: #1a8c9e;
+            --text-main: #f4f4f2;
+            --text-muted: #888888;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
+
+        /* --- Futuristic Network Map Background --- */
+        .clients-section {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 80px 20px;
+            background: radial-gradient(circle at center, #111a1f 0%, var(--bg-color) 70%);
+            overflow: hidden;
+        }
+
+        /* Mesh/Node grid overlay */
+        .clients-section::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: 
+                radial-gradient(circle, rgba(26, 140, 158, 0.15) 1px, transparent 1px),
+                linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 50px 50px, 100px 100px, 100px 100px;
+            opacity: 0.4;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1300px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .section-eyebrow {
+            color: var(--cyan-accent);
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .section-title {
+            font-family: Georgia, serif;
+            font-size: 3rem;
+            font-weight: 400;
+            margin: 0 0 60px 0;
+            color: #ffffff;
+            letter-spacing: 1px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+        }
+
+        /* --- Client Cards Grid --- */
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .client-card {
+            background: rgba(15, 15, 15, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(8px);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .client-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--cyan-accent);
+            background: rgba(26, 140, 158, 0.08);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(26, 140, 158, 0.2);
+        }
+
+        /* Icon Styling */
+        .icon-box {
+            width: 55px;
+            height: 55px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+
+        .client-card:hover .icon-box {
+            transform: scale(1.1);
+        }
+
+        .icon-box svg {
+            width: 40px;
+            height: 40px;
+            stroke: #ffffff;
+            fill: none;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5));
+        }
+
+        /* Client Name & Acronym Typography */
+        .client-name {
+            font-family: Georgia, serif;
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: var(--text-main);
+            margin: 0 0 5px 0;
+            line-height: 1.3;
+        }
+
+        .client-acronym {
+            font-size: 0.8rem;
+            color: var(--cyan-accent);
+            letter-spacing: 1px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        /* Responsive Layout Adjustments */
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2.2rem;
+            }
+            .clients-section {
+                padding: 40px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="clients-section">
+        <div class="container">
+            <div class="section-eyebrow">Enterprise & Government Partners</div>
+            <h2 class="section-title">Clients</h2>
+
+            <div class="clients-grid">
+                
+                <!-- 1. RTMC -->
+                <div class="client-card">
+                    <div class="icon-box">
+                        <svg viewBox="0 0 24 24"><path d="M5 17h14v4H5zM12 3v10m-4-4l4 4 4-4"/></svg>
+                    </div>
+                    <h3 class="client-name">Road Traffic Management Corporation</h3>
+                    <span class="client-acronym">RTMC</span>
+                </div>
+
+                <!-- 2. SITA -->
+                <div class="client-card">
+                    <div class="icon-box">
+                        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6" y2="6"/><line x1="6" y1="18" x2="6" y2="18"/></svg>
+                    </div>
+                    <h3 class="client-name">State Information Technology Agency</h3>
+                    <span class="client-acronym">SITA</span>
+                </div>
+
+                <!-- 3. Sentech -->
+                <div class="client-card">
+                    <div class="icon-box">
+                        <svg viewBox="0 0 24 24"><path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9M19.1 19.1c3.9-3.9 3.9-10.3 0-14.2M2 12h20M12 2v20"/><circle cx="12" cy="12" r="3"/></svg>
+                    </div>
+                    <h3 class="client-name">Sentech (SOE)</h3>
+                    <span class="client-acronym">Sentech</span>
+                </div>
+
+                <!-- 4. SAHRC -->
+                <div class="client-card">
+                    <div class="icon-box">
+                        <svg viewBox="0 0 24 24"><path d="M12 3v18m-7-4h14M3 7l9-4 9 4"/></svg>
+                    </div>
+                    <h3 class="client-name">South African Human Rights Commission</h3>
+                    <span class="client-acronym">SAHRC</span>
+                </div>
+
+                <!-- 5. SAPS -->
+                <div class="client-card">
+                    <div class="icon-box">
+                        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <h3 class="client-name">South African Police Services</h3>
+                    <span class="client-acronym">SAPS</span>
+                </div>
+
+                <!-- 6. DSD -->
+                <div class="client-card">
+                    <div class="icon-box">
+                        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h3 class="client-name">Department of Social Development</h3>
+                    <span class="client-acronym">DSD</span>
+                </div>
+
+                <!-- 7. DLCA -->
+                <div class="client-card">
+                    <div class="icon-box">
+                        <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="6" y1="9" x2="10" y2="9"/><line x1="6" y1="13" x2="14" y2="13"/></svg>
+                    </div>
+                    <h3 class="client-name">Driving License Card Account</h3>
+                    <span class="client-acronym">DLCA</span>
+                </div>
+
+                <!-- 8. NPA -->
+                <div class="client-card">
+                    <div class="icon-box">
+                        <svg viewBox="0 0 24 24"><path d="M3 21h18M5 10h14M5 6l7-3 7 3M4 10v11M20 10v11"/></svg>
+                    </div>
+                    <h3 class="client-name">National Prosecuting Authority</h3>
+                    <span class="client-acronym">NPA</span>
+                </div>
+
+                <!-- 9. OCJ -->
+                <div class="client-card">
+                    <div class="icon-box">
+                        <svg viewBox="0 0 24 24"><path d="M12 2L2 7h20L12 2zM2 22h20M6 10h2v8H6zm5 0h2v8h-2zm5 0h2v8h-2z"/></svg>
+                    </div>
+                    <h3 class="client-name">Office of Chief Justice</h3>
+                    <span class="client-acronym">OCJ</span>
+                </div>
+
+                <!-- 10. Eng.Co -->
+                <div class="client-card">
+                    <div class="icon-box">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                    </div>
+                    <h3 class="client-name">Engineering Company</h3>
+                    <span class="client-acronym">Eng.Co</span>
+                </div>
+
+                <!-- 11. GBN -->
+                <div class="client-card">
+                    <div class="icon-box">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    </div>
+                    <h3 class="client-name">Gauteng Broadband Network</h3>
+                    <span class="client-acronym">GBN</span>
+                </div>
+
+                <!-- 12. Vodacom -->
+                <div class="client-card">
+                    <div class="icon-box">
+                        <svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.94 0M12 20h.01"/></svg>
+                    </div>
+                    <h3 class="client-name">Vodacom</h3>
+                    <span class="client-acronym">Vodacom</span>
+                </div>
+
+                <!-- 13. MTN -->
+                <div class="client-card">
+                    <div class="icon-box">
+                        <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+                    </div>
+                    <h3 class="client-name">MTN</h3>
+                    <span class="client-acronym">MTN</span>
+                </div>
+
+                <!-- 14. Cell C -->
+                <div class="client-card">
+                    <div class="icon-box">
+                        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    </div>
+                    <h3 class="client-name">Cell C</h3>
+                    <span class="client-acronym">Cell C</span>
+                </div>
+
+                <!-- 15. Telkom 8ta -->
+                <div class="client-card">
+                    <div class="icon-box">
+                        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    </div>
+                    <h3 class="client-name">Telkom 8ta</h3>
+                    <span class="client-acronym">Telkom 8ta</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

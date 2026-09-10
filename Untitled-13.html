@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trancomm - Vision & Quality Statement</title>
+    <style>
+        :root {
+            --bg-color: #050505;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --cyan-accent: #1a8c9e;
+            --purple-accent: #9b59b6;
+            --text-main: #ffffff;
+            --text-muted: #b0c4de;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
+
+        .vision-quality-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 100px 20px;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        /* --- Circuit Graphic (Top Right) --- */
+        .circuit-decoration {
+            position: absolute;
+            top: 20px;
+            right: 0;
+            width: 320px;
+            height: 220px;
+            opacity: 0.18;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* --- Section Header --- */
+        .section-header {
+            position: relative;
+            z-index: 2;
+            margin-bottom: 70px;
+            text-align: center;
+        }
+
+        .section-number {
+            color: var(--cyan-accent);
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .main-title {
+            font-family: Georgia, serif;
+            font-size: 3.2rem;
+            font-weight: 400;
+            line-height: 1.2;
+            margin: 0;
+            background: linear-gradient(135deg, #ffffff 60%, var(--text-muted));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* --- Cards Grid --- */
+        .vision-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .statement-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 45px 40px;
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            align-items: center;
+            text-align: center;
+        }
+
+        .statement-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--cyan-accent), var(--purple-accent));
+            opacity: 0.6;
+            transition: opacity 0.4s ease;
+        }
+
+        .statement-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(26, 140, 158, 0.4);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 25px rgba(26, 140, 158, 0.15);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .statement-card:hover::before {
+            opacity: 1;
+        }
+
+        /* --- Icon & Title Header --- */
+        .card-icon-wrapper {
+            width: 64px;
+            height: 64px;
+            border-radius: 14px;
+            background: rgba(26, 140, 158, 0.1);
+            border: 1px solid rgba(26, 140, 158, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+        }
+
+        .card-icon-wrapper svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        .card-title {
+            font-family: Georgia, serif;
+            font-size: 1.9rem;
+            font-weight: 400;
+            margin: 0 0 20px 0;
+            color: var(--text-main);
+        }
+
+        .card-text {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.75;
+            font-weight: 300;
+            margin: 0;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 900px) {
+            .vision-grid {
+                grid-template-columns: 1fr;
+            }
+            .main-title {
+                font-size: 2.4rem;
+            }
+            .circuit-decoration {
+                width: 200px;
+                opacity: 0.1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="vision-quality-container">
+        
+        <!-- Background Circuit Graphic -->
+        <svg class="circuit-decoration" viewBox="0 0 300 200" fill="none" stroke="#1a8c9e" stroke-width="1.5">
+            <path d="M50,10 L120,10 L160,50 L250,50 L280,80 L280,150" />
+            <path d="M10,60 L80,60 L110,90 L200,90 L240,130 L240,180" />
+            <path d="M90,120 L140,120 L170,150 L220,150" />
+            <circle cx="50" cy="10" r="4" fill="#1a8c9e" />
+            <circle cx="280" cy="150" r="4" fill="#1a8c9e" />
+            <circle cx="10" cy="60" r="4" fill="#9b59b6" />
+            <circle cx="240" cy="180" r="4" fill="#9b59b6" />
+            <circle cx="220" cy="150" r="4" fill="#1a8c9e" />
+        </svg>
+
+        <!-- Section Header -->
+       
+
+        <!-- Vision & Quality Cards -->
+        <div class="vision-grid">
+            
+            <!-- Vision Card -->
+            <div class="statement-card">
+                <div class="card-icon-wrapper">
+                    <!-- Partnership / Handshake Icon -->
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#1a8c9e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M11 15h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L4 16" />
+                        <path d="m7 13 1.6-1.6a2 2 0 0 1 2.8 0l2.6 2.6" />
+                        <path d="M17 11a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-2.5l-3-3" />
+                        <circle cx="12" cy="5" r="2" stroke="#d387c8" />
+                    </svg>
+                </div>
+                <h3 class="card-title">Vision</h3>
+                <p class="card-text">
+                    Our Vision is to build long-term and reputable partnerships with our customers and industry leading players. Through a partnerships model, our mission is to deliver quality and cost-effective Information Technology products, services and solutions that are tailored to our customer requirements. Furthermore, the business strives to skill and create employment opportunities for unemployed youth.
+                </p>
+            </div>
+
+            <!-- Quality Card -->
+            <div class="statement-card">
+                <div class="card-icon-wrapper">
+                    <!-- Quality / Hands & Gear Icon -->
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#9b59b6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" stroke="#1a8c9e" />
+                        <path d="M12 12v3" />
+                        <path d="M8 15h8" />
+                        <path d="M6 18c0 2 3 3 6 3s6-1 6-3" />
+                        <path d="M5 14a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4" />
+                    </svg>
+                </div>
+                <h3 class="card-title">Quality</h3>
+                <p class="card-text">
+                    We shall provide our service with efficiency whilst ensuring that statutory and regulatory requirements are complied with and client expectations are met. Our Quality Policy and Quality Manuals are available for verification on request.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+</body>
+</html>

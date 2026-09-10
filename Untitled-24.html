@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI & Data Analytics | Trancomm</title>
+    <style>
+        :root {
+            --bg-base: #050505;
+            --bg-surface: rgba(18, 22, 28, 0.65);
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(26, 140, 158, 0.4);
+            --cyan-accent: #1a8c9e;
+            --cyan-glow: rgba(26, 140, 158, 0.15);
+            --text-primary: #ffffff;
+            --text-secondary: #aeb5bc;
+            --font-heading: Georgia, serif;
+            --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            font-family: var(--font-body);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* --- Ambient Background Effects --- */
+        .page-wrapper {
+            position: relative;
+            padding: 80px 24px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .page-wrapper::before {
+            content: '';
+            position: fixed;
+            top: -20%;
+            left: -10%;
+            width: 50vw;
+            height: 50vw;
+            background: radial-gradient(circle, var(--cyan-glow) 0%, transparent 70%);
+            z-index: -1;
+            pointer-events: none;
+            filter: blur(80px);
+        }
+
+        /* --- Header Section --- */
+        .header-section {
+            margin-bottom: 60px;
+            animation: fadeUp 0.8s ease-out;
+        }
+
+        .section-number {
+            color: var(--cyan-accent);
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .main-title {
+            font-family: var(--font-heading);
+            font-size: 3.5rem;
+            font-weight: 400;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            font-weight: 300;
+            margin-bottom: 40px;
+        }
+
+        .executive-overview {
+            background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0) 100%);
+            border-left: 3px solid var(--cyan-accent);
+            padding: 24px 32px;
+            border-radius: 0 12px 12px 0;
+            max-width: 1000px;
+            font-size: 1.05rem;
+            color: #d1d5db;
+        }
+
+        /* --- Navigation Tabs (Visual Representation of Image) --- */
+        .category-nav {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            animation: fadeUp 1s ease-out;
+        }
+
+        .nav-btn {
+            background: transparent;
+            border: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            padding: 12px 24px;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover, .nav-btn.active {
+            border-color: var(--cyan-accent);
+            color: var(--text-primary);
+            background: rgba(26, 140, 158, 0.05);
+            box-shadow: 0 4px 15px rgba(26, 140, 158, 0.1);
+        }
+
+        /* --- Glassmorphism Bento Grid --- */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            animation: fadeUp 1.2s ease-out;
+        }
+
+        .glass-card {
+            background: var(--bg-surface);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 40px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--cyan-accent), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--border-hover);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 20px var(--cyan-glow);
+        }
+
+        .glass-card:hover::before {
+            opacity: 1;
+        }
+
+        .card-title {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .card-intro {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-top: auto;
+        }
+
+        .feature-list li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+            color: #c9d1d9;
+        }
+
+        .feature-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .feature-list li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--cyan-accent);
+            font-size: 1.2rem;
+            line-height: 1.4;
+        }
+
+        .feature-list li strong {
+            color: var(--text-primary);
+            font-weight: 600;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        /* --- Strategic Advantage Footer Section --- */
+        .strategic-advantage {
+            margin-top: 60px;
+            padding-top: 60px;
+            border-top: 1px solid var(--border-subtle);
+            animation: fadeUp 1.4s ease-out;
+        }
+
+        .strategic-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 30px;
+        }
+
+        .advantage-item h3 {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            color: var(--cyan-accent);
+        }
+
+        .advantage-item p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* --- Animations --- */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 1024px) {
+            .main-title { font-size: 2.8rem; }
+            .bento-grid { grid-template-columns: 1fr; }
+            .strategic-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .page-wrapper { padding: 40px 20px; }
+            .main-title { font-size: 2.2rem; }
+            .category-nav { flex-direction: column; }
+            .nav-btn { text-align: left; }
+            .glass-card { padding: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-wrapper">
+        
+        <!-- Header Section -->
+        <header class="header-section">
+            <h1 class="main-title">AI & Data Analytics</h1>
+            <p class="subtitle">Transforming Raw Information into Strategic Foresight and Operational Intelligence.</p>
+            
+            <div class="executive-overview">
+                <p>In the modern enterprise landscape, raw data is abundant but underutilized. Without the right interpretive frameworks, massive datasets remain a liability rather than a strategic asset. Trancomm’s AI & Data Analytics division empowers organizations to move beyond reactive decision-making. By deploying advanced machine learning models, forensic methodologies, and computer vision, we transform complex data streams into actionable intelligence, robust security postures, and automated operational efficiency.</p>
+            </div>
+        </header>
+
+        <!-- Category Navigation (Matching the image provided) -->
+        <div class="category-nav">
+            <button class="nav-btn active">Data Analytics</button>
+            <button class="nav-btn">Digital Forensics</button>
+            <button class="nav-btn">AI Analysis</button>
+            <button class="nav-btn">Intelligent Video Analytics</button>
+        </div>
+
+        <!-- Main Content Grid -->
+        <div class="bento-grid">
+            
+            <!-- Card 1: Data Analytics -->
+            <article class="glass-card">
+                <h2 class="card-title">Data Analytics</h2>
+                <p class="card-intro">We engineer comprehensive data pipelines that aggregate, sanitize, and analyze vast quantities of organizational information, providing a unified view of your enterprise.</p>
+                <ul class="feature-list">
+                    <li><strong>Predictive Analytics & Forecasting</strong> Moving beyond historical reporting to forecast future trends and operational bottlenecks.</li>
+                    <li><strong>Business Intelligence Dashboards</strong> Designing highly visual, intuitive dashboards that deliver real-time data to executive stakeholders.</li>
+                    <li><strong>Data Warehousing & Architecture</strong> Structuring unstructured data from siloed departments into centralized, secure data lakes.</li>
+                    <li><strong>Process Mining & Optimization</strong> Analyzing operational data to identify inefficiencies, enabling accurate "As-Is" to "To-Be" process modeling.</li>
+                </ul>
+            </article>
+
+            <!-- Card 2: Digital Forensics -->
+            <article class="glass-card">
+                <h2 class="card-title">Digital Forensics</h2>
+                <p class="card-intro">When cyber incidents or internal anomalies occur, our digital forensics team applies rigorous cybersecurity frameworks to uncover the truth hidden within digital footprints.</p>
+                <ul class="feature-list">
+                    <li><strong>Incident Response & Analysis</strong> Rapidly isolating compromised network segments and identifying the initial attack vector.</li>
+                    <li><strong>E-Discovery & Litigation Support</strong> Conducting forensically sound data extraction and chain-of-custody preservation.</li>
+                    <li><strong>Data Recovery & Restoration</strong> Reconstructing corrupted or encrypted data following ransomware attacks or hardware failures.</li>
+                    <li><strong>Proactive Threat Hunting</strong> Utilizing advanced telemetry to actively search your network for dormant or hidden threats.</li>
+                </ul>
+            </article>
+
+            <!-- Card 3: AI Analysis -->
+            <article class="glass-card">
+                <h2 class="card-title">AI Analysis</h2>
+                <p class="card-intro">We deploy enterprise-grade AI to automate complex cognitive tasks, scale operational capacity, and uncover hidden patterns that human analysts cannot detect at scale.</p>
+                <ul class="feature-list">
+                    <li><strong>Machine Learning Models</strong> Custom algorithms that learn from organizational data, improving accuracy in resource allocation.</li>
+                    <li><strong>Anomaly Detection & Risk Governance</strong> Establishing behavioral baselines to automatically flag deviations indicating fraud or unauthorized access.</li>
+                    <li><strong>Natural Language Processing</strong> Automating the extraction of key information from unstructured text and contracts.</li>
+                    <li><strong>Automated Decision Support</strong> Integrating AI directly into existing ERP systems to accelerate complex approval workflows.</li>
+                </ul>
+            </article>
+
+            <!-- Card 4: Intelligent Video Analytics -->
+            <article class="glass-card">
+                <h2 class="card-title">Intelligent Video Analytics</h2>
+                <p class="card-intro">By integrating advanced computer vision with existing physical security infrastructure, we turn passive cameras into proactive, intelligent sensors.</p>
+                <ul class="feature-list">
+                    <li><strong>Automated Perimeter Defense</strong> Utilizing object classification to distinguish between harmless movement and genuine intrusions.</li>
+                    <li><strong>Facial Recognition & Access Control</strong> Enhancing high-security zones with biometric video verification against authorized databases.</li>
+                    <li><strong>Crowd & Behavior Analytics</strong> Monitoring high-density areas for bottlenecks or erratic behavior in real-time.</li>
+                    <li><strong>PSIM Integration</strong> Seamlessly feeding video metadata into central Command & Control platforms for automated responses.</li>
+                </ul>
+            </article>
+
+        </div>
+
+        <!-- Footer / Strategic Advantage -->
+        <section class="strategic-advantage">
+            <h2 class="main-title" style="font-size: 2rem;">The Strategic Advantage</h2>
+            <div class="strategic-grid">
+                <div class="advantage-item">
+                    <h3>From Reactive to Predictive</h3>
+                    <p>Shift your organizational posture from reacting to historical events to anticipating future outcomes with data-driven accuracy.</p>
+                </div>
+                <div class="advantage-item">
+                    <h3>Uncompromising Compliance</h3>
+                    <p>Ensure all data processing and forensic investigations strictly adhere to international data privacy and risk management frameworks.</p>
+                </div>
+                <div class="advantage-item">
+                    <h3>Scalable Intelligence</h3>
+                    <p>Build an analytics architecture designed to grow seamlessly as your enterprise data volume expands exponentially.</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>

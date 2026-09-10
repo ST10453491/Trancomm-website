@@ -1,0 +1,52 @@
+@import url("../site.css");
+
+.page-hero,
+.page-hero + .contracts-detail-section,
+.page-hero ~ .section,
+.page-hero ~ .site-footer,
+main,
+.section,
+.site-footer { text-align: center; }
+.contracts-detail-section { width: 100vw; margin-left: calc(50% - 50vw); overflow: hidden; text-align: center; }
+.contracts-detail-section iframe { display: block; width: 100%; height: 2400px; margin: 0 auto; border: 0; overflow: hidden; }
+.contracts-detail-section + .section .list li::before { content: none; }
+.contracts-detail-section + .section .split .list { padding-left: 0; text-align: center; }
+.contracts-detail-section + .section .split .list li { padding-left: 0; }
+.site-footer .footer-container,
+.site-footer .footer-brand,
+.site-footer .social-icons,
+.site-footer .footer-bottom { justify-content: center; text-align: center; }
+.site-footer .footer-brand { align-items: center; }
+.site-footer .social-icons { margin-right: auto; margin-left: auto; }
+.employee-portal-section { padding: 112px 20px; background: #071014; color: #f5fafa; }
+.employee-portal-wrapper { width: min(1180px, 100%); margin: 0 auto; border: 1px solid rgba(101,213,220,.24); background: #fff; color: #182326; box-shadow: 0 25px 70px rgba(0,0,0,.3); text-align: left; }
+.employee-portal-header { padding: 32px 38px; background: #071b22; color: #fff; text-align: center; }
+.employee-portal-header .eyebrow { margin-bottom: 8px; color: #65d5dc; }
+.employee-portal-header h2 { margin-bottom: 4px; font-size: 2.45rem; }
+.employee-portal-header p:last-child { margin: 0; color: #aab8bc; font-size: .9rem; }
+.employee-portal-body { display: grid; grid-template-columns: 245px 1fr; min-height: 580px; }
+.employee-portal-sidebar { padding: 32px 20px; border-right: 1px solid #dce4e5; background: #f6f9f9; }
+.employee-portal-label { margin: 0 12px 18px; color: #53666a; font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.employee-portal-nav { padding: 0; margin: 0; list-style: none; }
+.employee-portal-nav li { margin-bottom: 5px; }
+.employee-portal-nav a { display: block; padding: 10px 12px; color: #53666a; text-decoration: none; font-size: .88rem; transition: background .2s ease, color .2s ease; }
+.employee-portal-nav a:hover { color: #071b22; background: #e5f0f1; }
+.employee-portal-nav a.active { color: #fff; background: #1a8c9e; }
+.employee-portal-content { padding: 34px; background: #fff; }
+.employee-portal-panel { display: none; animation: portalFadeIn .3s ease; }
+.employee-portal-panel.active { display: block; }
+.employee-portal-welcome { display: flex; align-items: flex-start; gap: 18px; padding: 26px; margin-bottom: 24px; border-left: 3px solid #1a8c9e; background: #f5f9f9; }
+.portal-status-mark { display: none; }
+.employee-portal-welcome .eyebrow, .employee-portal-feature .eyebrow { margin-bottom: 7px; color: #1a8c9e; }
+.employee-portal-welcome h3, .employee-portal-feature h3 { margin-bottom: 8px; color: #13272b; font-size: 1.85rem; }
+.employee-portal-welcome p:last-child, .employee-portal-feature p:last-child { margin: 0; color: #617174; font-size: .9rem; }
+.portal-status-mark { display: grid; flex: 0 0 45px; height: 45px; place-items: center; background: #e38bc9; color: #fff; font: 700 1.1rem "Cormorant Garamond", serif; }
+.employee-portal-card-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+.employee-portal-card-grid article, .employee-portal-feature { padding: 24px; border: 1px solid #dce4e5; background: #fff; }
+.employee-portal-card-grid article { min-height: 135px; }
+.employee-portal-card-grid h3 { margin-bottom: 7px; color: #13272b; font-size: 1.2rem; }
+.employee-portal-card-grid p { margin: 0; color: #617174; font-size: .84rem; line-height: 1.55; }
+.employee-portal-feature { max-width: 700px; margin: 40px auto; text-align: center; }
+.employee-portal-feature .eyebrow { margin-bottom: 10px; }
+@keyframes portalFadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 760px) { .employee-portal-section { padding: 76px 14px; } .employee-portal-header { padding: 28px 20px; } .employee-portal-header h2 { font-size: 2rem; } .employee-portal-body { grid-template-columns: 1fr; } .employee-portal-sidebar { border-right: 0; border-bottom: 1px solid #dce4e5; } .employee-portal-nav { display: grid; grid-template-columns: repeat(2, 1fr); gap: 4px; } .employee-portal-nav li { margin: 0; } .employee-portal-content { padding: 20px; } .employee-portal-card-grid { grid-template-columns: 1fr; } .employee-portal-welcome { flex-direction: column; } }

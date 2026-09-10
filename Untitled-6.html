@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trancomm - Credibility & Experience</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #0b0f19;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .credibility-section {
+            width: 100%;
+            max-width: 1200px;
+            padding: 60px 20px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .section-header {
+            margin-bottom: 50px;
+        }
+
+        .section-subtitle {
+            font-family: Georgia, serif;
+            font-style: italic;
+            font-size: 2.2rem;
+            color: #1a8c9e;
+            margin-bottom: 10px;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            color: #b0c4de;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        /* --- KEY STATS COUNTER GRID --- */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 30px 20px;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            border-color: #1a8c9e;
+            box-shadow: 0 0 20px rgba(26, 140, 158, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #8bc53f;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #a0a3a6;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- TRUSTED CLIENTS & PARTNERS --- */
+        .credibility-block {
+            background: radial-gradient(circle at center, #131c2e 0%, #0b0f19 100%);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 40px 30px;
+            margin-bottom: 30px;
+        }
+
+        .block-title {
+            font-size: 1rem;
+            color: #1a8c9e;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        .logos-flex {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .logo-badge {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .logo-badge:hover {
+            background: rgba(26, 140, 158, 0.2);
+            border-color: #1a8c9e;
+            color: #8bc53f;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 500px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="credibility-section">
+        
+        <!-- Section Title -->
+        <div class="section-header">
+            <div class="section-subtitle">Proven Experience</div>
+            <div class="section-title">Trusted Industry Leadership &amp; Delivery</div>
+        </div>
+
+        <!-- Key Metrics / Stats -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">20+</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Project Delivery</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">Pretoria</div>
+                <div class="stat-label">Headquarters</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">Tier-1</div>
+                <div class="stat-label">Enterprise Solutions</div>
+            </div>
+        </div>
+
+        <!-- Strategic Technology Partners -->
+        <div class="credibility-block">
+            <div class="block-title">Strategic OEM Partners</div>
+            <div class="logos-flex">
+                <div class="logo-badge">HUAWEI</div>
+                <div class="logo-badge">CISCO</div>
+                <div class="logo-badge">DELL</div>
+            </div>
+        </div>
+
+        <!-- Valued Clients -->
+        <div class="credibility-block">
+            <div class="block-title">Key Enterprise &amp; Public Sector Clients</div>
+            <div class="logos-flex">
+                <div class="logo-badge">SITA</div>
+                <div class="logo-badge">SAPS</div>
+                <div class="logo-badge">VODACOM</div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

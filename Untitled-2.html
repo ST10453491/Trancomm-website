@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trancomm Service Diagram</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            /* Overall soft blue gradient background */
+            background: linear-gradient(135deg, #e7f0f6 0%, #cddce8 100%);
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        .diagram-container {
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        svg {
+            width: 100%;
+            height: auto;
+            drop-shadow: 0px 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .diagram-text {
+            font-size: 14.5px;
+            font-weight: 700;
+            fill: #2a5676;
+            text-anchor: middle;
+        }
+    </style>
+</head>
+<body>
+
+<div class="diagram-container">
+    <svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+        
+        <!-- ============================== -->
+        <!-- WEDGE BORDERS (Rotated groups) -->
+        <!-- ============================== -->
+        <g stroke-width="3.5" fill="none">
+            <!-- Top Wedge (Red) -->
+            <g transform="rotate(0 400 400)">
+                <path d="M 338.5,308.8 L 249.0,176.2 A 270,270 0 0,1 551.0,176.2 L 461.5,308.8" stroke="#ef4b38"/>
+            </g>
+            <!-- Top Right Wedge (Orange) -->
+            <g transform="rotate(72 400 400)">
+                <path d="M 338.5,308.8 L 249.0,176.2 A 270,270 0 0,1 551.0,176.2 L 461.5,308.8" stroke="#f9a01b"/>
+            </g>
+            <!-- Bottom Right Wedge (Teal) -->
+            <g transform="rotate(144 400 400)">
+                <path d="M 338.5,308.8 L 249.0,176.2 A 270,270 0 0,1 551.0,176.2 L 461.5,308.8" stroke="#1a8c9e"/>
+            </g>
+            <!-- Bottom Left Wedge (Dark Blue) -->
+            <g transform="rotate(216 400 400)">
+                <path d="M 338.5,308.8 L 249.0,176.2 A 270,270 0 0,1 551.0,176.2 L 461.5,308.8" stroke="#274f73"/>
+            </g>
+            <!-- Top Left Wedge (Green) -->
+            <g transform="rotate(288 400 400)">
+                <path d="M 338.5,308.8 L 249.0,176.2 A 270,270 0 0,1 551.0,176.2 L 461.5,308.8" stroke="#8bc53f"/>
+            </g>
+        </g>
+
+        <!-- ============================== -->
+        <!-- ICONS AND TEXT (Unrotated)     -->
+        <!-- ============================== -->
+
+        <!-- 1. Top Section (Network Infrastructure) -->
+        <g>
+            <g transform="translate(378, 135) scale(1.4)">
+                <rect x="6" y="2" width="20" height="8" rx="1" fill="none" stroke="#2a5676" stroke-width="1.5"/>
+                <line x1="9" y1="6" x2="11" y2="6" stroke="#2a5676" stroke-width="1.5" stroke-linecap="round"/>
+                <rect x="6" y="12" width="20" height="8" rx="1" fill="none" stroke="#2a5676" stroke-width="1.5"/>
+                <!-- Shield -->
+                <path d="M 18,11 L 28,11 L 28,17 C 28,24 23,28 23,28 C 23,28 18,24 18,17 Z" fill="transparent" stroke="#ef4b38" stroke-width="1.5"/>
+                <!-- Lock -->
+                <path d="M 21,15 V 14 C 21,13 25,13 25,14 V 15 H 26 V 21 H 20 V 15 Z" fill="none" stroke="#ef4b38" stroke-width="1"/>
+                <rect x="6" y="22" width="20" height="8" rx="1" fill="none" stroke="#2a5676" stroke-width="1.5"/>
+            </g>
+            <text x="400" y="210" class="diagram-text">Network</text>
+            <text x="400" y="230" class="diagram-text">Infrastructure &amp;</text>
+            <text x="400" y="250" class="diagram-text">Security</text>
+        </g>
+
+        <!-- 2. Top Right Section (AI & Big Data) -->
+        <g>
+            <g transform="translate(565, 260) scale(1.4)">
+                <path d="M 16,4 A 12,12 0 0,1 16,28" fill="none" stroke="#f9a01b" stroke-width="1.5"/>
+                <path d="M 16,0 v 4 M 24,4 l -2,3 M 30,12 l -4,1 M 32,16 h -4 M 30,20 l -4,-1 M 24,28 l -2,-3 M 16,32 v -4" stroke="#f9a01b" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M 16,4 C 10,2 2,6 4,12 C 0,14 0,20 4,22 C 2,28 10,32 16,28" fill="none" stroke="#2a5676" stroke-width="1.5" stroke-linejoin="round"/>
+                <path d="M 8,12 C 12,12 14,8 16,8 M 8,22 C 12,22 14,26 16,26 M 6,17 C 12,17 14,17 16,17" fill="none" stroke="#2a5676" stroke-width="1.5"/>
+            </g>
+            <text x="590" y="335" class="diagram-text">Artificial</text>
+            <text x="590" y="355" class="diagram-text">Intelligence &amp;</text>
+            <text x="590" y="375" class="diagram-text">Big Data Analytics</text>
+        </g>
+
+        <!-- 3. Bottom Right Section (Octopus C&C) -->
+        <g>
+            <g transform="translate(492, 475) scale(1.5)">
+                <path d="M 4,20 H 28 V 8 C 28,7 27,6 26,6 H 6 C 5,6 4,7 4,8 Z" fill="none" stroke="#2a5676" stroke-width="1.5"/>
+                <path d="M 2,20 H 30 C 31,20 32,21 32,22 H 0 C 0,21 1,20 2,20 Z" fill="none" stroke="#2a5676" stroke-width="1.5"/>
+                <path d="M 11,11 L 8,14 L 11,17 M 15,17 L 17,10 M 21,11 L 24,14 L 21,17" fill="none" stroke="#1a8c9e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+            <text x="517" y="555" class="diagram-text">Octopus – Command</text>
+            <text x="517" y="575" class="diagram-text">&amp; Control</text>
+        </g>
+
+        <!-- 4. Bottom Left Section (Consulting & Training) -->
+        <g>
+            <g transform="translate(258, 475) scale(1.5)">
+                <circle cx="16" cy="10" r="5" fill="none" stroke="#2a5676" stroke-width="1.5"/>
+                <path d="M 6,24 C 6,18 10,16 16,16 C 22,16 26,18 26,24" fill="none" stroke="#2a5676" stroke-width="1.5"/>
+                <path d="M 12,24 L 16,16 L 20,24 M 16,16 V 24" fill="none" stroke="#2a5676" stroke-width="1"/>
+                <path d="M 10,10 A 6,6 0 0,1 22,10 V 12 H 24 V 8 C 24,3 18,1 16,1 C 14,1 8,3 8,8 V 12 H 10 Z" fill="none" stroke="#ef4b38" stroke-width="1"/>
+                <circle cx="8" cy="11" r="2" fill="#ef4b38"/>
+                <circle cx="24" cy="11" r="2" fill="#ef4b38"/>
+                <path d="M 8,11 A 6,6 0 0,0 12,15" fill="none" stroke="#ef4b38" stroke-width="1.5" stroke-linecap="round"/>
+            </g>
+            <text x="283" y="555" class="diagram-text">Consulting &amp;</text>
+            <text x="283" y="575" class="diagram-text">Training</text>
+        </g>
+
+        <!-- 5. Top Left Section (Microwave & Radio) -->
+        <g>
+            <g transform="translate(185, 260) scale(1.4)">
+                <g transform="rotate(-45 16 16)">
+                   <rect x="12" y="10" width="8" height="12" fill="none" stroke="#2a5676" stroke-width="1.5"/>
+                   <rect x="2" y="12" width="6" height="8" fill="none" stroke="#2a5676" stroke-width="1.5"/>
+                   <line x1="8" y1="16" x2="12" y2="16" stroke="#2a5676" stroke-width="1.5"/>
+                   <rect x="24" y="12" width="6" height="8" fill="none" stroke="#2a5676" stroke-width="1.5"/>
+                   <line x1="20" y1="16" x2="24" y2="16" stroke="#2a5676" stroke-width="1.5"/>
+                   <path d="M 12,6 L 20,6 L 18,2 L 14,2 Z" fill="none" stroke="#8bc53f" stroke-width="1.5"/>
+                   <line x1="16" y1="2" x2="16" y2="-2" stroke="#8bc53f" stroke-width="1.5"/>
+                   <path d="M 12,-4 A 6,6 0 0,1 20,-4" fill="none" stroke="#8bc53f" stroke-width="1.5" stroke-linecap="round"/>
+                </g>
+            </g>
+            <text x="210" y="340" class="diagram-text">Microwave &amp;</text>
+            <text x="210" y="360" class="diagram-text">Radio Frequency</text>
+        </g>
+
+        <!-- ============================== -->
+        <!-- CENTER LOGO & CIRCLE           -->
+        <!-- ============================== -->
+        
+        <!-- Transparent Center Ring -->
+        <circle cx="400" cy="400" r="105" fill="transparent" stroke="#274f73" stroke-width="3"/>
+        
+        <!-- TRANCOMM communications Logo inside center circle -->
+        <!-- Optically adjusted to center: shifted left from 310 to 296, shifted down from 360 to 376 -->
+        <g transform="translate(296, 376) scale(0.31)">
+            <!-- Curved Orbital Line -->
+            <path d="M 90 25 C 10 25, 20 120, 90 135 C 140 145, 180 130, 210 110" fill="transparent" stroke="#164a69" stroke-width="9" stroke-linecap="round" />
+            <!-- Network Node / Dot -->
+            <circle cx="53" cy="98" r="16" fill="#164a69" />
+            <!-- 'TRAN' (Dark Blue) -->
+            <text x="100" y="100" font-family="Arial, Helvetica, sans-serif" font-weight="900" font-size="76" fill="#164a69" letter-spacing="1">TRAN</text>
+            <!-- 'COMM' (Dark Grey) -->
+            <text x="325" y="100" font-family="Arial, Helvetica, sans-serif" font-weight="900" font-size="76" fill="#63666a" letter-spacing="1">COMM</text>
+            <!-- 'communications' -->
+            <text x="560" y="128" font-family="Arial, Helvetica, sans-serif" font-weight="600" font-size="24" fill="#a0a3a6" letter-spacing="0.5" text-anchor="end">communications</text>
+        </g>
+
+    </svg>
+</div>
+
+</body>
+</html>
